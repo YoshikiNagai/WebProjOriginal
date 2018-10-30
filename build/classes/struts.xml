@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="com.action" extends="struts-default">
+		<action name="MailAction" class="com.action.MailAction" method="execute">
+			<result name="error">index.jsp</result>
+			<result name="success">home.jsp</result>
+		</action>
+
+		<action name="AccountCreateAction" class="com.action.AccountCreateAction" method="execute">
+			<result name="success">accountCreate.jsp</result>
+		</action>
+
+		<action name="AccountCreateConfirmAction" class="com.action.AccountCreateConfirmAction" method="execute">
+			<result name="error">accountCreate.jsp</result>
+			<result name="success">accountCreateConfirm.jsp</result>
+		</action>
+
+		<action name="AccountCreateCompleteAction" class="com.action.AccountCreateCompleteAction" method="execute">
+			<result name="success">accountCreateComplete.jsp</result>
+		</action>
+
+		<action name="LoginAction" class="com.action.LoginAction" method="execute">
+			<result name="success">login.jsp</result>
+		</action>
+
+		<action name="LoginCompleteAction" class="com.action.LoginCompleteAction" method="execute">
+			<result name="error">login.jsp</result>
+			<result name="success">home.jsp</result>
+		</action>
+
+		<action name="LogoutAction" class="com.action.LogoutAction" method="execute">
+			<result name="success">index.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,658 @@
+/* --common--*/
+.center {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.displayNone {
+	display: none;
+}
+
+.gray {
+	color: gray;
+}
+
+.font12px {
+	font-size: 12px;
+}
+
+
+.top60% {
+	top: 60%;
+}
+/* .backgroundWhite{ */
+/* 	background-color: white; */
+/* } */
+
+.floatLeft {
+	float: left;
+}
+
+.clearLeft {
+	clear: left;
+}
+
+.checkBox {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border: 2px solid black;
+	border-radius: 2px;
+	box-sizing: border-box;
+	opacity: 0.5;
+}
+
+.hoverCircle {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	height: 80%;
+	width: 80%;
+	float: left;
+	border-radius: 100px;
+	transition: 0.2s;
+}
+
+.hoverCircle:hover{
+	background-color: lightgray;
+}
+
+.defautOpacity:hover {
+	opacity: 1.0;
+}
+
+/* --tag-- */
+body {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+/* --header-- */
+.header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	border-bottom: 1px solid #f5f5f5;
+	height: 48px;
+}
+
+.humberger {
+	position: relative;
+	height: 48px;
+	width: 48px;
+	float: left;
+	border-radius: 100px;
+	margin: 5px;
+}
+
+.humberger div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+	height: 1.5px;
+	width: 24px;
+	background-color: gray;
+	border-radius: 2px;
+}
+
+.humberger div:nth-of-type(1) {
+	top: 18px;
+}
+
+.humberger div:nth-of-type(2) {
+	top: 24px;
+}
+
+.humberger div:nth-of-type(3) {
+	top: 30px;
+}
+
+.humberger:hover {
+	background-color: #f5f5f5;
+}
+
+.header>img {
+	float: left;
+}
+
+.searchBar {
+	width: 60%;
+	height: 100%;
+	float: left;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	margin-left: 85px;
+	transition: 0.1s;
+}
+
+.onSearchBar {
+	box-shadow: 0 1px 4px gray;
+	background-color: white;
+}
+
+.searchBar .searchBarLeft {
+	width: 40px;
+	height: 100%;
+	float: left;
+	border-radius: 100px;
+}
+
+.searchBarLeft:active, .searchBarRight:active {
+	background-color: lightgray;
+}
+
+.searchBar input {
+	outline: 0;
+	background-color: rgba(0, 0, 0, 0);
+	width: calc(100% - 80px);
+	height: 100%;
+	border: 0px;
+	float: left;
+}
+
+.searchBar .searchBarRight {
+	position: relative;
+	width: 40px;
+	height: 100%;
+	float: left;
+	border-radius: 100px;
+}
+
+/* ‰º–îˆó */
+.arrow {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+	width: 0;
+	border-style: solid;
+	border-width: 6px 6px 0 6px;
+	border-color: gray transparent transparent transparent;
+	float: left;
+}
+
+.arrow:hover {
+	border-color: black transparent transparent transparent;
+}
+
+.appMenu {
+	width: 16px;
+	height: 100%;
+	background-image: url("../picture/appMenu.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 16px;
+	margin-left: 50px;
+}
+
+.information {
+	width: 16px;
+	height: 100%;
+	background-image: url("../picture/bell.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 16px;
+	margin-left: 30px;
+}
+
+.account {
+	width: 32px;
+	height: 32px;
+	border: 1px solid red;
+	background-color: red;
+	border-radius: 100px;
+	color: white;
+	margin-left: 30px;
+}
+
+/* --Window left-- */
+.left {
+	width: 256px;
+	height: calc(100% - 66px);
+	float: left;
+	/* 	border-right: 2px solid gray; */
+}
+
+.createButtonArea {
+	width: 100%;
+	height: 80px;
+}
+
+.createButton {
+	position: relative;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 112px;
+	height: 48px;
+	border: 1px solid #f5f5f5;
+	border-radius: 100px;
+	box-shadow: 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px
+		rgba(0, 0, 0, 0.19);
+	transition: 0.1s;
+}
+
+.createButton:hover {
+	box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px
+		rgba(60, 64, 67, 0.3);
+}
+
+.createButtonLeft, .createButtonRight {
+	width: 56px;
+	height: 48px;
+	float: left;
+}
+
+.createButtonLeft {
+	background-image: url("../picture/create.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 32px;
+}
+
+.createButtonRight {
+	line-height: 50px;
+	vertical-align: middle;
+}
+
+.leftMenu {
+	clear: left;
+}
+
+.leftMenuChild {
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 26px;
+}
+
+.leftMenuChild:hover {
+	background-color: #f5f5f5;
+	border-top-right-radius: 150px;
+	border-bottom-right-radius: 150px;
+}
+
+.menuIconImg {
+	background-size: 20px;
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+
+.leftMenuChildText {
+	padding-left: 20px;
+	float: left;
+	height: 100%;
+}
+
+.iconBox {
+	background-image: url("../picture/box.png");
+}
+
+.iconStar {
+	background-image: url("../picture/star.png");
+}
+
+.iconSnooze {
+	background-image: url("../picture/watch.png");
+}
+
+.iconSent {
+	background-image: url("../picture/sent.png");
+}
+
+.iconDraft {
+	background-image: url("../picture/file.png");
+}
+
+.iconUnderArrow {
+	background-image: url("../picture/underArrow.png");
+}
+
+.hr {
+	border-bottom: 0.5px solid #f5f5f5;
+}
+
+.chatArea {
+	height: calc(100% - 306px);
+}
+
+.chat {
+	width: 100%;
+	height: calc(100% - 36px);
+	opacity: 0.3;
+	background: url("../picture/chat.png");
+	background-repeat: no-repeat;
+	background-size: 128px;
+	background-position: center;
+}
+
+.chatUnderMessage {
+	position: relative;
+	top: -100px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.underBar {
+	position: relative;
+	width: 100%;
+	height: 24px;
+	border-top: 0.5px solid #f5f5f5;
+}
+
+.main {
+	/* width: window_width - left_width - right_width - this.padding */
+	width: calc(100% - 256px - 50px - 20px);
+	height: calc(100% - 66px);
+	float: left;
+	padding-right: 20px;
+}
+
+.upperBar {
+	height: 48px;
+	border-bottom: 0.5px solid #f5f5f5;
+}
+
+.mailBox{
+
+}
+
+.mailCategoryBar {
+	height: 48px;
+	box-sizing: border-box;
+	border-bottom: 0.5px solid #f5f5f5;
+}
+
+.categoryMainImg,
+.categorySocialImg,
+.categoryPromotionImg {
+	margin: 10px;
+	width: 20px;
+	height: 20px;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	float:left;
+}
+
+.category {
+	position: relative;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	width: calc(100% / 3);
+	height: 100%;
+	float:left;
+	color: #999999;
+
+}
+
+.category:hover {
+	color: black;
+	background-color: lightgray;
+}
+
+.categorySelected {
+	position: absolute;
+	width: 90%;
+	height: 3px;
+	box-sizing: border-box;
+	border: 1px solid red;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: red;
+	margin: auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.categoryMainImg {
+	background-image: url("../picture/box.png");
+}
+
+.categorySocialImg {
+	background-image: url("../picture/social.png");
+}
+
+.categoryPromotionImg {
+	background-image: url("../picture/tag.png");
+}
+
+.mailer {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 96px);
+
+}
+
+.mailerChild {
+	height: 50px;
+	background-color: #f5f5f5;
+/* 	box-sizing: border-box; */
+	border-bottom: 0.5px solid lightgray;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	cursor: pointer;
+}
+
+.mailerChild:hover {
+	position: relative;
+	border: 0.5px solid lightgray;
+	box-shadow: 0 2px 1px -1px gray;
+	z-index: 0;
+}
+
+.mailerChildCheckBox {
+	width: 50px;
+	height: 100%;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+
+}
+
+.mailerChildStar {
+	width: 40px;
+	height: 50px;
+	background-image: url("../picture/star.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.mailerChildTitle {
+	width: 100px;
+	height: 100%;
+	position: relative;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.mailerChildText {
+	width: 200px;
+	height: 100%;
+	position: relative;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.mailerChildETC {
+	width: 50px;
+	height: 100%;
+	position: relative;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
+
+.mailer a {
+	text-decoration: none;
+}
+
+.mailer a:hover {
+	text-decoration: underline;
+}
+.mailerInformation1 {
+	position: relative;
+	width: calc(100% / 3);
+    text-align: left;
+	top: 20%;
+}
+
+.mailerInformation2 {
+	position: relative;
+	width: calc(100% / 3);
+	text-align: center;
+	top: 20%;
+}
+
+.mailerInformation3 {
+	position: relative;
+	width: calc(100% / 3);
+	text-align: right;
+	top: 20%;
+}
+
+.mailViewer {
+
+}
+
+.right {
+	width: 50px;
+	height: calc(100% - 66px);
+	float: left;
+	border-left: 0.5px solid #f5f5f5;
+	box-sizing: border-box;
+}
+
+/* --inputWindow-- */
+
+.inputWindow{
+	display: none;
+	position: absolute;
+	right: 70px;
+	bottom: 0;
+	border: 2px solid black;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	width: 600px;
+	height: 500px;
+	z-index: 1;
+	background-color: white;
+}
+
+.inputWindowBar{
+	padding: 5px;
+	background-color: #333333;
+	color: white;
+}
+
+.inputWindow input[type="text"] {
+	width: 90%;
+	height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 0.5px solid #EEEEEE;
+	outline: none;
+	appearance: none;
+}
+
+.inputWindowButton{
+	display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+}
+
+.inputWindow textArea {
+	width: 100%;
+	height: 60%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	appearance: none;
+}
+
+/* -- account create--*/
+
+.createAccountArea {
+	border-radius: 10px;
+	padding: 40px;
+	box-shadow: 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	clear: left;
+}
+
+.animationInputArea {
+	position: relative;
+	width: 170px;
+	height: 60px;
+	margin-right: 20px;
+}
+
+
+.animation {
+	position: absolute;
+	height: 50%;
+	top: 50%;
+	z-index: -1;
+	-ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    transition: all .3s ease;
+    color: gray;
+}
+
+.createAccountArea input[type="text"] {
+	position: relative;
+	background-color: transparent;
+	border: none;
+	border-bottom: 0.5px solid #EEEEEE;
+	border-width: 80%;
+	outline: none;
+	appearance: none;
+	top: 60%;
+}
+
+.animationBorder {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	-webkit-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	transform: scaleX(0);
+	background-color: blue;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+
+.createAccountUnderArea {
+
+}
