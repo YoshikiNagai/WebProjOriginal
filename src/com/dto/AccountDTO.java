@@ -1,6 +1,6 @@
 package com.dto;
 
-import com.etc.Gender;
+import java.util.Date;
 
 public class AccountDTO extends DTO{
 	private String id;
@@ -8,9 +8,8 @@ public class AccountDTO extends DTO{
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
-	//TODO:Date ni siro
-	private String birthDay;
-	private Gender gender;
+	private Date birthDay;
+	private String gender;
 	public String getId() {
 		return id;
 	}
@@ -41,16 +40,16 @@ public class AccountDTO extends DTO{
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getBirthDay() {
+	public Date getBirthDay() {
 		return birthDay;
 	}
-	public void setBirthDay(String birthDay) {
+	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
 	}
-	public Gender getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(Gender gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

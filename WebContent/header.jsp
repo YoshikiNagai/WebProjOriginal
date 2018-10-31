@@ -34,5 +34,5 @@
 	</div>
 	<div class="appMenu"></div>
 	<div class="information"></div>
-	<div class="account">名前</div>
+	<div class="account"><s:property value="#session.account.firstName" /></div>
 </div>

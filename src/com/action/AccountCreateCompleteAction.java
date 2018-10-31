@@ -1,15 +1,16 @@
 package com.action;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.dao.AccountDAO;
 import com.dto.AccountDTO;
-import com.etc.Gender;
 import com.opensymphony.xwork2.ActionSupport;
 
+//TODO:genderなおす
 public class AccountCreateCompleteAction extends ActionSupport implements SessionAware{
 	private String id;
 	private String password;
@@ -18,21 +19,21 @@ public class AccountCreateCompleteAction extends ActionSupport implements Sessio
 	private String lastName;
 	private String phoneNumber;
 	private String birthDay;
-	private Gender gender = Gender.man;
+	private String gender = "man";
 
 	public Map<String, Object> session;
 	private AccountDAO dao = new AccountDAO();
 	private AccountDTO dto = new AccountDTO();
 
-	//TODO:genderなおす
-	public String execute() throws SQLException{
+	public String execute() throws SQLException, ParseException{
 		dto.setId(session.get("id").toString());
 		dto.setPassword(session.get("password").toString());
 		dto.setLastName(session.get("lastName").toString());
 		dto.setFirstName(session.get("firstName").toString());
 		dto.setPhoneNumber(session.get("phoneNumber").toString());
-		dto.setBirthDay(session.get("birthDay").toString());
+		dto.setBirthDay(java.sql.Date.valueOf(session.get("birthDay").toString()));
 		dto.setGender(gender);
+		System.out.println(dto.getBirthDay());
 		dao.insert(dto);
 		return SUCCESS;
 	}
@@ -93,11 +94,11 @@ public class AccountCreateCompleteAction extends ActionSupport implements Sessio
 		this.birthDay = birthDay;
 	}
 
-	public Gender getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGener(Gender gender) {
+	public void setGener(String gender) {
 		this.gender = gender;
 	}
 

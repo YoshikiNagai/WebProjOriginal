@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.dto.AccountDTO;
-import com.etc.Gender;
 
 //TODO: つくれ
 public class AccountDAO extends DAO{
@@ -16,7 +15,7 @@ public class AccountDAO extends DAO{
 	}
 
 	public int insert(AccountDTO dto) throws SQLException{
-		//TODO:birthdayのおおもといじったらなおす genderもほかなおしたらなおす
+		//TODO:birthdayのおおもといじったらなおす
 		return this.executeUpdate(
 				"insert into account values(?, ?, ?, ?, ?, ?, ?)",
 				dto.getId(),
@@ -24,12 +23,11 @@ public class AccountDAO extends DAO{
 				dto.getFirstName(),
 				dto.getLastName(),
 				dto.getPhoneNumber(),
-				dto.getBirthDay(),
-				dto.getGender().toString()
+				dto.getBirthDay().toString(),
+				dto.getGender()
 		);
 	}
 
-	//TODO:genderが鬼門
 	private AccountDTO getAccountDTO(ResultSet resultSet) throws SQLException{
 		AccountDTO dto = new AccountDTO();
 		dto.setId(resultSet.getString("id"));
@@ -37,8 +35,8 @@ public class AccountDAO extends DAO{
 		dto.setFirstName(resultSet.getString("firstName"));
 		dto.setLastName(resultSet.getString("lastName"));
 		dto.setPhoneNumber(resultSet.getString("phoneNumber"));
-		dto.setBirthDay(resultSet.getString("birthDay"));
-		dto.setGender((Gender)resultSet.getObject("gender"));
+		dto.setBirthDay(resultSet.getDate("birthDay"));
+		dto.setGender(resultSet.getString("gender"));
 		return dto;
 	}
 }

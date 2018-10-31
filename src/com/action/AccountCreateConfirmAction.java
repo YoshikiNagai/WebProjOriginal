@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.etc.Gender;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AccountCreateConfirmAction extends ActionSupport implements SessionAware{
@@ -16,13 +15,12 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 	private String lastName;
 	private String phoneNumber;
 	private String birthDay;
-	private Gender gender;
+	private String gender;
 
 	public Map<String, Object> session;
 	private String errorMessage;
 
 
-	//TODO:GENDERチェック
 	public String execute(){
 		if(textCheck(id, password, firstName, lastName, phoneNumber, birthDay)){
 			session.put("id", id);
@@ -94,11 +92,11 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 		this.birthDay = birthDay;
 	}
 
-	public Gender getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

@@ -30,9 +30,11 @@
 		</script>
 		<div class="center">
 			<div class="createAccountArea">
-				imail logo(yet)<br>
-				ログイン<br>
-				お客様のiMailアカウントを使用
+				<div class="textCenter">
+					imail logo(yet)<br>
+					<h3>ログイン</h3>
+				</div>
+
 				<s:form action="LoginCompleteAction">
 					<div class="animationInputArea floatLeft">
 						<div class="animation">メールアドレス</div>
@@ -50,7 +52,7 @@
 					<br><br>
 					ご自分のパソコンでない場合は、ゲストモードを使用して非公開でログインしてください。<a href="">ヘルプ</a>
 					<br>
-					<a href="">アカウントを作成</a>
+					<a href='<s:url action="AccountCreateAction"/>'>アカウントを作成</a>
 
 					<s:submit class="floatLeft" value="次へ"></s:submit>
 				</s:form>

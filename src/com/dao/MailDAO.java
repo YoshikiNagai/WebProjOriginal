@@ -15,7 +15,7 @@ public class MailDAO extends DAO{
 		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
-								).getMulti();
+								).getList();
 		ArrayList<MailDTO> resultList = new ArrayList<>();
 		for(DTO dto: mailList){
 			resultList.add((MailDTO)dto);
@@ -36,6 +36,16 @@ public class MailDAO extends DAO{
 				dto.getTitle(),
 				dto.getText()
 		);
+	}
+
+	//既読にする
+	public int updateRead(int id)throws SQLException{
+		return this.executeUpdate("update mail set read = true where id = ?", String.valueOf(id));
+	}
+
+	//星をつけはずしする
+	public int updateStar(int id)throws SQLException{
+		return this.executeUpdate("update mail set star = if(star = 1, 0, 1) where id = ?", String.valueOf(id));
 	}
 
 	public int delete(int...id) throws SQLException{

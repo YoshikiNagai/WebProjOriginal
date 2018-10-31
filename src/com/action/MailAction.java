@@ -24,30 +24,37 @@ public class MailAction extends ActionSupport implements SessionAware{
 	//TODO:例外がば
 	public String execute() throws Exception{
 		System.out.println("execute: MailAction");
-		//TODO:ログインしてないときの処理（sessionにidがないときの処理）
+		//ログインしてないときの処理（sessionにidがないときの処理）
 		if(session.get("account") == null){
+			System.out.println("-------- need login");
 			return ERROR;
 		}
-		//test code
-		//send mail
+
+		//login済みなので情報を取ってくる
+		AccountDTO account = (AccountDTO)session.get("account");
+
+		//送信フラグがたっているときメール送信処理を行う
 		if(sendFlg == 1){
-			System.out.println("execute: insert");
+			System.out.println("-------- send mail");
+			dto.setFrom(account.getId());
 			dto.setTo(to);
 			dto.setTitle(title);
 			dto.setText(text);
 			mailDAO.insert(dto);
 		}
-		//get mail list
-		AccountDTO dto = (AccountDTO)session.get("account");
-		String id = dto.getId();
-		mailList = mailDAO.selectWhereTo(id);
-		//test code end
+
+		//ログインIDのメールリストを取得する
+		mailList = mailDAO.selectWhereTo(account.getId());
 
 		return SUCCESS;
 	}
 
 	public ArrayList<MailDTO> getMailList(){
 		return this.mailList;
+	}
+
+	public void setMailList(ArrayList<MailDTO> mailList) {
+		this.mailList = mailList;
 	}
 
 	@Override

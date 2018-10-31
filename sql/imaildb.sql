@@ -28,8 +28,8 @@ create table account(
 	firstName varchar(255) not null,
 	lastName varchar(255) not null,
 	phoneNumber varchar(255),
-	birthDay varchar(255),
-	gender varchar(255)
+	birthDay datetime,
+	gender varchar(10)
 );
 
 insert into mail values(

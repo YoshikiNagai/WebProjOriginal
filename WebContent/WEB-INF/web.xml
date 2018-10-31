@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>WebProjOriginal</display-name>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
 	<filter>
 		<filter-name>struts2</filter-name>

@@ -6,7 +6,7 @@
 	<constant name="struts.devMode" value="true" />
 	<package name="com.action" extends="struts-default">
 		<action name="MailAction" class="com.action.MailAction" method="execute">
-			<result name="error">index.jsp</result>
+			<result name="error">login.jsp</result>
 			<result name="success">home.jsp</result>
 		</action>
 
@@ -29,7 +29,7 @@
 
 		<action name="LoginCompleteAction" class="com.action.LoginCompleteAction" method="execute">
 			<result name="error">login.jsp</result>
-			<result name="success">home.jsp</result>
+			<result type="chain" name="success">MailAction</result>
 		</action>
 
 		<action name="LogoutAction" class="com.action.LogoutAction" method="execute">

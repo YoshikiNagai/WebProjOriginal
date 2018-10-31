@@ -7,22 +7,28 @@
 			$(".categorySelected").remove();
 			$(this).append('<div class="categorySelected"></div>');
 		});
-// 		TODO:頭動かなかったので今度やれ
+		//TODO:頭動かなかったので今度やれ
 		$(".mailerChild").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
 			$(".mailViewer").removeClass("displayNone");
 			$(".test").text($(this).text());
 		});
+		//Viewからmailerに戻るボタンを押したとき
+		$(".backButton").on("click", function(){
+			$(".mailBox").removeClass("displayNone");
+			$(".mailViewer").addClass("displayNone");
+		});
 	});
 </script>
 <div class="main">
-	<div class="upperBar">
-		<div></div>
-		<div></div>
-		<div></div>
-	</div>
+
 	<!-- 	めーるぼっくすだよ -->
 	<div class="mailBox">
+		<div class="upperBar">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 		<div class="mailCategoryBar">
 			<div class="category">
 				<div class="categoryMainImg"></div>
@@ -39,7 +45,6 @@
 			</div>
 		</div>
 		<div class="mailer">
-			<!-- TODO:mailListとViewerの切り替え欲しい・・・欲しくない？ -->
 			<s:iterator value="mailList">
 				<div class="mailerChild">
 					<div class="mailerChildCheckBox floatLeft">
@@ -72,10 +77,15 @@
 
 	</div>
 
-	<!-- 	めーるヴゅわーだよ -->
+	<!-- 	Mail Viewer -->
 	<div class="mailViewer displayNone">
-		viewerRRRRRRRRRRRRRR
+		<div class="upperBar">
+			<div class="backButton"></div>
+			<div></div>
+			<div></div>
+		</div>
 		<div class="test">
+
 		</div>
 	</div>
 </div>

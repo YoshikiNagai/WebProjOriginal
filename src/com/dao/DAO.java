@@ -65,7 +65,6 @@ public abstract class DAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 				list.add(settingDTO.run(resultSet));
-				System.out.println(": x");
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -76,13 +75,22 @@ public abstract class DAO {
 	}
 }
 
+//TODO:使いたくないけど作っちゃった
+/**
+ * がばがばクラス
+ * @author
+ *
+ */
 class VariableLengthDTO{
 	private ArrayList<DTO> list;
 	private DTO dto;
 	private boolean isMultiple;
 
 	public VariableLengthDTO(ArrayList<DTO> list) {
-		if(list.size() <= 1){
+		if(list.size() == 0){
+			dto = null;
+			isMultiple = false;
+		}else if(list.size() == 1){
 			dto = list.get(0);
 			isMultiple = false;
 		}else{
@@ -107,6 +115,10 @@ class VariableLengthDTO{
 		if(!this.isMultiple){
 			throw new Exception("This object has single element.");
 		}
+		return this.list;
+	}
+
+	public ArrayList<DTO> getList() throws Exception{
 		return this.list;
 	}
 }

@@ -1,0 +1,15 @@
+errorMessage関連　後回し
+メーラーの未実装部分　たくさん
+アカウント作成画面の調整CSS
+ログイン画面の調整CSS
+
+jQueryの部品化
+
+mailerの中身個別表示
+
+F5による連続送信　トークンチェックが必要？
+
+参考
+update bool_test set bool_field=if(bool_field=1,0,1)
+
+star read の反転update	→　作ったけどidがint名の考えずに作ったからがばってそう

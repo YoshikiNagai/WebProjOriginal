@@ -12,10 +12,15 @@ public class LoginCompleteAction extends ActionSupport implements SessionAware{
 	private String id;
 	private String password;
 	private Map<String, Object> session;
+	private String errorMessage;
 
 	public String execute() throws Exception{
 		AccountDAO dao = new AccountDAO();
 		AccountDTO dto = dao.selectWhereId(id);
+		if(dto == null){
+			errorMessage = "WRYYYYYYYYYYYYY";
+			return ERROR;
+		}
 		if(dto.getId().equals(id) && dto.getPassword().equals(password)){
 			session.put("account", dto);
 			return SUCCESS;
