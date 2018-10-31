@@ -26,7 +26,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 		System.out.println("execute: MailAction");
 		//ログインしてないときの処理（sessionにidがないときの処理）
 		if(session.get("account") == null){
-			System.out.println("-------- need login");
+			System.out.println("-------- Need login");
 			return ERROR;
 		}
 
@@ -35,7 +35,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 
 		//送信フラグがたっているときメール送信処理を行う
 		if(sendFlg == 1){
-			System.out.println("-------- send mail");
+			System.out.println("-------- Send mail");
 			dto.setFrom(account.getId());
 			dto.setTo(to);
 			dto.setTitle(title);
@@ -44,6 +44,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 		}
 
 		//ログインIDのメールリストを取得する
+		System.out.println("-------- Get mail list");
 		mailList = mailDAO.selectWhereTo(account.getId());
 
 		return SUCCESS;

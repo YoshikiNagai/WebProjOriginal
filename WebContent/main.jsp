@@ -3,11 +3,12 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <script type="text/javascript">
 	$(function() {
+		//カテゴリー選択した場合にアンダーラインを出す
 		$(".category").on("click", function() {
 			$(".categorySelected").remove();
 			$(this).append('<div class="categorySelected"></div>');
 		});
-		//TODO:頭動かなかったので今度やれ
+		//mailerからviewerへ切り替え
 		$(".mailerChild").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
 			$(".mailViewer").removeClass("displayNone");
@@ -22,7 +23,7 @@
 </script>
 <div class="main">
 
-	<!-- 	めーるぼっくすだよ -->
+	<!-- Mail Box -->
 	<div class="mailBox">
 		<div class="upperBar">
 			<div></div>

@@ -44,7 +44,7 @@
 
 					<div class="animationInputArea floatLeft">
 						<div class="animation">パスワード</div>
-						<input type="text" name="password">
+						<input type="password" name="password">
 						<div class="animationBorder"></div>
 					</div>
 					<div class="clearLeft"></div>

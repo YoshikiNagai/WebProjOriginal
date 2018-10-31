@@ -641,7 +641,7 @@ html, body {
     color: gray;
 }
 
-.createAccountArea input[type="text"] {
+.createAccountArea input[type="text"],input[type="password"] {
 	position: relative;
 	background-color: transparent;
 	border: none;
