@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <script type="text/javascript">
+	let selectMailId;
+	function getSelectMailId(){
+		return selectMailId;
+	}
 	$(function() {
 		//カテゴリー選択した場合にアンダーラインを出す
 		$(".category").on("click", function() {
@@ -12,13 +16,19 @@
 		$(".mailerChild").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
 			$(".mailViewer").removeClass("displayNone");
-			$(".test").text($(this).text());
+			$(".test").text('<s:set var="mailId">' + $(this).attr("id") + '</s:set>');
+			$(".test").append('<s:property value="#mailId"/>');
+// 			$(".test").attr("id", $(this).attr("id"));
+// 			request.setAttribute("mailId", $(this).attr("id"));
+			selectMailId = $(this).attr("id");
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
 			$(".mailBox").removeClass("displayNone");
 			$(".mailViewer").addClass("displayNone");
 		});
+
+
 	});
 </script>
 <div class="main">
@@ -46,8 +56,9 @@
 			</div>
 		</div>
 		<div class="mailer">
-			<s:iterator value="mailList">
-				<div class="mailerChild">
+			<s:iterator value="mailList" status="st">
+<!-- 				メール個別にidをふる -->
+				<div class="mailerChild" id='<s:property value="#st.index"/>'>
 					<div class="mailerChildCheckBox floatLeft">
 						<div class="hoverCircle">
 							<div class="checkBox center defautOpacity"></div>
@@ -87,6 +98,13 @@
 		</div>
 		<div class="test">
 
+			<s:property value="#mailId"/>
+			<s:iterator value="mailList" status="st">
+
+				<s:if test='#st.index == mailId'>
+					SUCCESS
+				</s:if>
+			</s:iterator>
 		</div>
 	</div>
 </div>
