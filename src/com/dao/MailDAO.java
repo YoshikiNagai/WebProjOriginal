@@ -17,6 +17,7 @@ public class MailDAO extends DAO{
 										id
 								).getList();
 		ArrayList<MailDTO> resultList = new ArrayList<>();
+		if(mailList == null)return resultList;
 		for(DTO dto: mailList){
 			resultList.add((MailDTO)dto);
 		}

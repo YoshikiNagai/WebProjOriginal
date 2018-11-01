@@ -16,11 +16,10 @@
 		$(".mailerChild").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
 			$(".mailViewer").removeClass("displayNone");
-			$(".test").text('<s:set var="mailId">' + $(this).attr("id") + '</s:set>');
-			$(".test").append('<s:property value="#mailId"/>');
-// 			$(".test").attr("id", $(this).attr("id"));
-// 			request.setAttribute("mailId", $(this).attr("id"));
-			selectMailId = $(this).attr("id");
+			$(".test .getFromVal").text($(".mailerChild .getFromVal").val());
+			$(".test .getToVal").text($(".mailerChild .getToVal").val());
+			$(".test .getTitleVal").text($(".mailerChild .getTitleVal").val());
+			$(".test .getTextVal").text($(".mailerChild .getTextVal").val());
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
@@ -72,6 +71,10 @@
 						<s:property value="text" />
 					</div>
 					<div class="mailerChildETC floatLeft">etc area</div>
+					<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+					<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+					<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+					<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 				</div>
 			</s:iterator>
 
@@ -97,14 +100,10 @@
 			<div></div>
 		</div>
 		<div class="test">
-
-			<s:property value="#mailId"/>
-			<s:iterator value="mailList" status="st">
-
-				<s:if test='#st.index == mailId'>
-					SUCCESS
-				</s:if>
-			</s:iterator>
+			from:<div class="getFromVal"></div>
+			to:<div class="getToVal"></div>
+			title:<div class="getTitleVal"></div>
+			text:<div class="getTextVal"></div>
 		</div>
 	</div>
 </div>
