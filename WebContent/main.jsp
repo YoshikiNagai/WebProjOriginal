@@ -16,10 +16,10 @@
 		$(".mailerChild").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
 			$(".mailViewer").removeClass("displayNone");
-			$(".test .getFromVal").text($(".mailerChild .getFromVal").val());
-			$(".test .getToVal").text($(".mailerChild .getToVal").val());
-			$(".test .getTitleVal").text($(".mailerChild .getTitleVal").val());
-			$(".test .getTextVal").text($(".mailerChild .getTextVal").val());
+			$(".test .getFromVal").text($(this).find(".getFromVal").val());
+			$(".test .getToVal").text($(this).find(".getToVal").val());
+			$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
+			$(".test .getTextVal").text($(this).find(".getTextVal").val());
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
