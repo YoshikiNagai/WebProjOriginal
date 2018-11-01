@@ -100,10 +100,15 @@
 			<div></div>
 		</div>
 		<div class="test">
-			from:<div class="getFromVal"></div>
-			to:<div class="getToVal"></div>
-			title:<div class="getTitleVal"></div>
-			text:<div class="getTextVal"></div>
+			<h4 class="getTitleVal"></h4>
+			<div class="floatLeft">from:</div>
+			<b class="getFromVal floatLeft"></b>
+			<div class="floatLeft">date(yet)</div>
+			<br>
+			<div class="floatLeft">to:</div>
+			<div class="getToVal floatLeft"></div>
+			<br>
+			<div class="getTextVal"></div>
 		</div>
 	</div>
 </div>
