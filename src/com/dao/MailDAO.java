@@ -3,10 +3,15 @@ package com.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import com.dto.DTO;
 import com.dto.MailDTO;
+import com.util.DateUtil;
+import com.util.MailComparator;
 
 public class MailDAO extends DAO{
 	//TODO:例外処理ががばがば
@@ -20,22 +25,20 @@ public class MailDAO extends DAO{
 		ArrayList<MailDTO> resultList = new ArrayList<>();
 		if(mailList == null)return resultList;
 		for(DTO dto: mailList){
-			System.out.println("1");
 			resultList.add((MailDTO)dto);
 		}
 		return resultList;
 	}
 
 	public int insert(MailDTO dto) throws SQLException{
-		//TODO:dateをいれる
+		DateUtil du = new DateUtil();
 		return this.executeUpdate(
 				"insert into mail values(0, ?,?,?,?,?,?,?,false,false)",
 				dto.getFrom(),
 				dto.getFromName(),
 				dto.getTo(),
 				dto.getToName(),
-//				dto.getSendDate(),
-				null,
+				du.getDateYMDHMS(),
 				dto.getTitle(),
 				dto.getText()
 		);
@@ -55,6 +58,36 @@ public class MailDAO extends DAO{
 		return this.executeUpdate("delete from mail where id = ?", id.toString());
 	}
 
+	public ArrayList<MailDTO> search(String...search) throws SQLException, Exception{
+		String string = "%" + search[0] + "%";
+		System.out.println(search[1]);
+		ArrayList<DTO> list = this.executeQuery("select * from mail where title like ? and `to` = ?",
+													(resultSet) -> getMailDTO(resultSet),
+													string, search[1]
+													).getList();
+		ArrayList<DTO> list2 = this.executeQuery("select * from mail where text like ? and `to` = ?",
+													(resultSet) -> getMailDTO(resultSet),
+													string, search[1]
+													).getList();
+		List<DTO> list3 = new ArrayList<>();
+		list3.addAll(list);
+		list3.addAll(list2);
+
+		Set<MailDTO> set = new HashSet<>();
+		for(DTO dto: list3){
+			set.add((MailDTO)dto);
+		}
+
+		ArrayList<MailDTO> retList = new ArrayList<>();
+		retList.addAll(set);
+
+		if(retList != null){
+			//TODO:sort処理
+			Collections.sort(retList, new MailComparator());
+		}
+		return retList;
+	}
+
 	private MailDTO getMailDTO(ResultSet resultSet) throws SQLException{
 		MailDTO dto = new MailDTO();
 		dto.setId(resultSet.getInt("id"));
@@ -62,8 +95,7 @@ public class MailDAO extends DAO{
 		dto.setFromName(resultSet.getString("fromName"));
 		dto.setTo(resultSet.getString("to"));
 		dto.setToName(resultSet.getString("toName"));
-		//TODO:Dateの冠する項目をつくる
-		dto.setSendDate(new Date());
+		dto.setSendDate(resultSet.getDate("sendDate"));
 		dto.setTitle(resultSet.getString("title"));
 		dto.setText(resultSet.getString("text"));
 		dto.setStar(resultSet.getBoolean("star"));

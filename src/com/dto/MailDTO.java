@@ -14,6 +14,18 @@ public class MailDTO extends DTO{
 	private boolean star;
 	private boolean read;
 
+	@Override
+	public boolean equals(Object obj){
+		if(!(obj instanceof MailDTO))return false;
+		MailDTO dto = (MailDTO)obj;
+		return this.id == dto.getId();
+	}
+
+	@Override
+	public int hashCode(){
+		return id;
+	}
+
 	public int getId() {
 		return id;
 	}

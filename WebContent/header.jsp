@@ -27,7 +27,12 @@
 	<img alt="logo" src="./picture/logo.png">
 	<div class="searchBar">
 		<img class="searchBarLeft" alt="search" src="./picture/search.png">
-		<input type="text" placeholder="メールを検索(inactive)" name="search" />
+		<s:form action="MailAction">
+			<input class="searchBarInput" type="text" placeholder="メールを検索(inactive)" name="search" />
+			<input type="hidden" name="searchFlg" value="1"/>
+			<s:submit style="display: none;"></s:submit>
+		</s:form>
+
 		<div class="searchBarRight">
 			<div class="arrow"></div>
 		</div>

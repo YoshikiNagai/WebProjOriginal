@@ -21,6 +21,9 @@ public class MailAction extends ActionSupport implements SessionAware{
 	private String title;
 	private String text;
 
+	private String search;
+	private int searchFlg;
+
 	//TODO:例外がば
 	public String execute() throws Exception{
 		System.out.println("execute: MailAction");
@@ -44,8 +47,15 @@ public class MailAction extends ActionSupport implements SessionAware{
 		}
 
 		//ログインIDのメールリストを取得する
-		System.out.println("-------- Get mail list");
-		mailList = mailDAO.selectWhereTo(account.getId());
+		//検索時
+		if(searchFlg == 1){
+			System.out.println("-------- Search mail");
+			mailList = mailDAO.search(search, account.getId());
+		}else{
+			System.out.println("-------- Get mail list");
+			mailList = mailDAO.selectWhereTo(account.getId());
+		}
+
 
 		return SUCCESS;
 	}
@@ -89,6 +99,22 @@ public class MailAction extends ActionSupport implements SessionAware{
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public int getSearchFlg() {
+		return searchFlg;
+	}
+
+	public void setSearchFlg(int searchFlg) {
+		this.searchFlg = searchFlg;
 	}
 
 

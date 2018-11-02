@@ -55,15 +55,16 @@
 			</div>
 		</div>
 		<div class="mailer">
-			<s:iterator value="mailList" status="st">
-<!-- 				メール個別にidをふる -->
-				<div class="mailerChild" id='<s:property value="#st.index"/>'>
+			<s:iterator value="mailList">
+				<div class="mailerChild">
 					<div class="mailerChildCheckBox floatLeft">
-						<div class="hoverCircle">
-							<div class="checkBox center defautOpacity"></div>
-						</div>
+						<div class="checkBox"></div>
+						<div class="hoverCircle"></div>
 					</div>
-					<div class="mailerChildStar floatLeft"></div>
+					<div class="mailerChildStar floatLeft">
+						<div class="starImg"></div>
+						<div class="hoverCircle"></div>
+					</div>
 					<div class="mailerChildTitle floatLeft">
 						<s:property value="title" />
 					</div>
@@ -71,6 +72,7 @@
 						<s:property value="text" />
 					</div>
 					<div class="mailerChildETC floatLeft">etc area</div>
+<!-- 					mailの内容 -->
 					<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
 					<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 					<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
@@ -95,7 +97,12 @@
 	<!-- 	Mail Viewer -->
 	<div class="mailViewer displayNone">
 		<div class="upperBar">
-			<div class="backButton"></div>
+			<div class="backButton">
+				<div class="backButtonImg"></div>
+				<div class="hoverCircle"></div>
+			</div>
+
+
 			<div></div>
 			<div></div>
 		</div>

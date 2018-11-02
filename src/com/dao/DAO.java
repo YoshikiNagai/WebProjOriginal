@@ -65,7 +65,6 @@ public abstract class DAO {
 			PreparedStatement preparedStatement = commonPreparedStatement(sql, setStrings);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-				System.out.println("0");
 				list.add(settingDTO.run(resultSet));
 			}
 		}catch(SQLException e){
@@ -97,7 +96,7 @@ class VariableLengthDTO{
 		}else{
 			this.isMultiple = true;
 		}
-		this.dto = list.get(0);
+		if(!list.isEmpty())this.dto = list.get(0);
 		this.list = list;
 	}
 
