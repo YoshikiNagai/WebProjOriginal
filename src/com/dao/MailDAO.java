@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.dto.DTO;
@@ -61,20 +60,12 @@ public class MailDAO extends DAO{
 	public ArrayList<MailDTO> search(String...search) throws SQLException, Exception{
 		String string = "%" + search[0] + "%";
 		System.out.println(search[1]);
-		ArrayList<DTO> list = this.executeQuery("select * from mail where title like ? and `to` = ?",
+		ArrayList<DTO> list = this.executeQuery("select * from mail where (title like ? or text like ? or `from` like ?) and `to` = ?",
 													(resultSet) -> getMailDTO(resultSet),
-													string, search[1]
+													string, string, string, search[1]
 													).getList();
-		ArrayList<DTO> list2 = this.executeQuery("select * from mail where text like ? and `to` = ?",
-													(resultSet) -> getMailDTO(resultSet),
-													string, search[1]
-													).getList();
-		List<DTO> list3 = new ArrayList<>();
-		list3.addAll(list);
-		list3.addAll(list2);
-
 		Set<MailDTO> set = new HashSet<>();
-		for(DTO dto: list3){
+		for(DTO dto: list){
 			set.add((MailDTO)dto);
 		}
 
