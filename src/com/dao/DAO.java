@@ -59,11 +59,13 @@ public abstract class DAO {
 	 * @throws SQLException
 	 */
 	public VariableLengthDTO executeQuery(String sql, SettingDTO settingDTO, String...setStrings) throws SQLException{
+		System.out.println("-------- Exequte query");
 		ArrayList<DTO> list = new ArrayList<>();
 		try{
 			PreparedStatement preparedStatement = commonPreparedStatement(sql, setStrings);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
+				System.out.println("0");
 				list.add(settingDTO.run(resultSet));
 			}
 		}catch(SQLException e){
@@ -88,15 +90,15 @@ class VariableLengthDTO{
 
 	public VariableLengthDTO(ArrayList<DTO> list) {
 		if(list.size() == 0){
-			dto = null;
-			isMultiple = false;
+			this.dto = null;
+			this.isMultiple = false;
 		}else if(list.size() == 1){
-			dto = list.get(0);
-			isMultiple = false;
+			this.isMultiple = false;
 		}else{
-			this.list = list;
 			this.isMultiple = true;
 		}
+		this.dto = list.get(0);
+		this.list = list;
 	}
 
 	public VariableLengthDTO(DTO dto){

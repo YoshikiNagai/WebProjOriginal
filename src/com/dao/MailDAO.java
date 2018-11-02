@@ -12,6 +12,7 @@ public class MailDAO extends DAO{
 	//TODO:例外処理ががばがば
 	//TODO:日付作ったらSQLのidを日付にする
 	public ArrayList<MailDTO> selectWhereTo(String id) throws Exception{
+		System.out.println("-------- Select where to = id");
 		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
@@ -19,6 +20,7 @@ public class MailDAO extends DAO{
 		ArrayList<MailDTO> resultList = new ArrayList<>();
 		if(mailList == null)return resultList;
 		for(DTO dto: mailList){
+			System.out.println("1");
 			resultList.add((MailDTO)dto);
 		}
 		return resultList;
