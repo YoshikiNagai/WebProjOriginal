@@ -3,15 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <script type="text/javascript">
 	$(function() {
-		$(".chatUnderMessage a").on({
-			"mouseenter" : function(){
-// 				$(".chatUnderMessage a").text("新しいチャットを開始できませんさせません");
-			},
-			"mouseleave" : function(){
-				$(".chatUnderMessage a").text("新しいチャットを開始しませんか");
-			}
-		});
-
+		//メール作成画面のオンオフ
 		$(".createButton").on("click", function(){
 			if($(".inputWindow").css("display") =="none"){
 				$(".inputWindow").css("display", "inline");
@@ -19,6 +11,13 @@
 				$(".inputWindow").css("display", "none");
 			}
 		});
+
+		$(".leftMenuChild").on("click", function(){
+			$(".leftMenuChild").removeClass("selected");
+			$(this).addClass("selected");
+			$(this).find("form").submit();
+		});
+
 	});
 </script>
 <div class="left">
@@ -29,30 +28,42 @@
 		</div>
 	</div>
 	<div class="leftMenu">
-		<div class="leftMenuChild">
+<!-- 		グローバル変数もどき -->
+		<input type="hidden" name="selectedLeftMenu" value='<s:property value="selectedLeftMenu"/>'>
+
+		<div class="leftMenuChild selected">
 			<div class="menuIconImg iconBox"></div>
 			<div class="leftMenuChildText">受信トレイ</div>
+			<s:form action="MailAction">
+				<input type="hidden" name="selectedLeftMenu" value="0">
+			</s:form>
 		</div>
 		<div class="leftMenuChild">
 			<div class="menuIconImg iconStar"></div>
 			<div class="leftMenuChildText">スター付き</div>
+			<s:form action="MailAction">
+				<input type="hidden" name="selectedLeftMenu" value="1">
+			</s:form>
 		</div>
-		<div class="leftMenuChild">
-			<div class="menuIconImg iconSnooze"></div>
-			<div class="leftMenuChildText">スヌーズ中</div>
-		</div>
+<!-- 		<div class="leftMenuChild"> -->
+<!-- 			<div class="menuIconImg iconSnooze"></div> -->
+<!-- 			<div class="leftMenuChildText">スヌーズ中(yet)</div> -->
+<!-- 		</div> -->
 		<div class="leftMenuChild">
 			<div class="menuIconImg iconSent"></div>
 			<div class="leftMenuChildText">送信済み</div>
+			<s:form action="MailAction">
+				<input type="hidden" name="selectedLeftMenu" value="2">
+			</s:form>
 		</div>
-		<div class="leftMenuChild">
-			<div class="menuIconImg iconDraft"></div>
-			<div class="leftMenuChildText">下書き</div>
-		</div>
-		<div class="leftMenuChild">
-			<div class="menuIconImg iconUnderArrow"></div>
-			<div class="leftMenuChildText">もっと見る(inactive)</div>
-		</div>
+<!-- 		<div class="leftMenuChild"> -->
+<!-- 			<div class="menuIconImg iconDraft"></div> -->
+<!-- 			<div class="leftMenuChildText">下書き(yet)</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="leftMenuChild"> -->
+<!-- 			<div class="menuIconImg iconUnderArrow"></div> -->
+<!-- 			<div class="leftMenuChildText">もっと見る(yet)</div> -->
+<!-- 		</div> -->
 	</div>
 	<div class="hr"></div>
 	<div class="chatArea">

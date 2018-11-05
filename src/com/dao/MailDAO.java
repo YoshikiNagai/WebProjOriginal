@@ -17,7 +17,36 @@ public class MailDAO extends DAO{
 	//TODO:日付作ったらSQLのidを日付にする
 	public ArrayList<MailDTO> selectWhereTo(String id) throws Exception{
 		System.out.println("-------- Select where to = id");
-		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id desc",
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id asc",
+										(resultSet) -> getMailDTO(resultSet),
+										id
+								).getList();
+		ArrayList<MailDTO> resultList = new ArrayList<>();
+		if(mailList == null)return resultList;
+		for(DTO dto: mailList){
+			resultList.add((MailDTO)dto);
+		}
+		return resultList;
+	}
+
+	//TODO:同上
+	public ArrayList<MailDTO> selectWhereFrom(String id) throws Exception{
+		System.out.println("-------- Select where to = id");
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `from` = ? order by id asc",
+										(resultSet) -> getMailDTO(resultSet),
+										id
+								).getList();
+		ArrayList<MailDTO> resultList = new ArrayList<>();
+		if(mailList == null)return resultList;
+		for(DTO dto: mailList){
+			resultList.add((MailDTO)dto);
+		}
+		return resultList;
+	}
+
+	public ArrayList<MailDTO> selectWhereStar(String id) throws Exception{
+		System.out.println("-------- Select where to = id");
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? and star = true order by id asc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
 								).getList();

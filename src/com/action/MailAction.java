@@ -23,6 +23,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 
 	private String search;
 	private int searchFlg;
+	private int selectedLeftMenu;
 
 	//TODO:例外がば
 	public String execute() throws Exception{
@@ -46,6 +47,8 @@ public class MailAction extends ActionSupport implements SessionAware{
 			mailDAO.insert(dto);
 		}
 
+
+
 		//ログインIDのメールリストを取得する
 		//検索時
 		if(searchFlg == 1){
@@ -53,7 +56,22 @@ public class MailAction extends ActionSupport implements SessionAware{
 			mailList = mailDAO.search(search, account.getId());
 		}else{
 			System.out.println("-------- Get mail list");
-			mailList = mailDAO.selectWhereTo(account.getId());
+
+			switch(selectedLeftMenu){
+			case 0:
+				mailList = mailDAO.selectWhereTo(account.getId());
+				break;
+			case 1:
+				//starつき
+				mailList = mailDAO.selectWhereStar(account.getId());
+				break;
+			case 2:
+				//送信済み
+				mailList = mailDAO.selectWhereFrom(account.getId());
+				break;
+			default:
+				throw new Exception("えらー");
+			}
 		}
 
 
@@ -115,6 +133,14 @@ public class MailAction extends ActionSupport implements SessionAware{
 
 	public void setSearchFlg(int searchFlg) {
 		this.searchFlg = searchFlg;
+	}
+
+	public int getSelectedLeftMenu() {
+		return selectedLeftMenu;
+	}
+
+	public void setSelectedLeftMenu(int selectedLeftMenu) {
+		this.selectedLeftMenu = selectedLeftMenu;
 	}
 
 
