@@ -16,6 +16,14 @@
 				$(".searchBar").removeClass("onSearchBar");
 			}
 		});
+
+		$(".account").on("click", function(){
+			if($(".accountWindow").css("display") =="none"){
+				$(".accountWindow").css("display", "inline");
+			}else{
+				$(".accountWindow").css("display", "none");
+			}
+		});
 	});
 </script>
 <div class="header">
@@ -40,4 +48,11 @@
 	<div class="appMenu"></div>
 	<div class="information"></div>
 	<div class="account"><s:property value="#session.account.firstName" /></div>
+
+	<div class="accountWindow">
+		<s:property value="#session.account.lastName"/>
+		<s:property value="#session.account.firstName"/>
+		<br>
+		<a href='<s:url action="LogoutAction"/>'>ログアウト</a>
+	</div>
 </div>

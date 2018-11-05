@@ -61,10 +61,10 @@
 				<input type="hidden" name="selectedLeftMenu" value="1">
 			</s:form>
 		</div>
-<!-- 		<div class="leftMenuChild"> -->
-<!-- 			<div class="menuIconImg iconSnooze"></div> -->
-<!-- 			<div class="leftMenuChildText">スヌーズ中(yet)</div> -->
-<!-- 		</div> -->
+		<div class="leftMenuChild">
+			<div class="menuIconImg iconSnooze"></div>
+			<div class="leftMenuChildText">スヌーズ中(yet)</div>
+		</div>
 		<div class="leftMenuChild" id="2">
 			<div class="menuIconImg iconSent"></div>
 			<div class="leftMenuChildText">送信済み</div>
@@ -72,14 +72,14 @@
 				<input type="hidden" name="selectedLeftMenu" value="2">
 			</s:form>
 		</div>
-<!-- 		<div class="leftMenuChild"> -->
-<!-- 			<div class="menuIconImg iconDraft"></div> -->
-<!-- 			<div class="leftMenuChildText">下書き(yet)</div> -->
-<!-- 		</div> -->
-<!-- 		<div class="leftMenuChild"> -->
-<!-- 			<div class="menuIconImg iconUnderArrow"></div> -->
-<!-- 			<div class="leftMenuChildText">もっと見る(yet)</div> -->
-<!-- 		</div> -->
+		<div class="leftMenuChild">
+			<div class="menuIconImg iconDraft"></div>
+			<div class="leftMenuChildText">下書き(yet)</div>
+		</div>
+		<div class="leftMenuChild">
+			<div class="menuIconImg iconUnderArrow"></div>
+			<div class="leftMenuChildText">もっと見る(yet)</div>
+		</div>
 	</div>
 	<div class="hr"></div>
 	<div class="chatArea">

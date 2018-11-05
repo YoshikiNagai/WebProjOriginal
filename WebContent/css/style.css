@@ -216,6 +216,7 @@ html, body {
 }
 
 .account {
+	position: relative;
 	width: 32px;
 	height: 32px;
 	border: 1px solid red;
@@ -223,6 +224,18 @@ html, body {
 	border-radius: 100px;
 	color: white;
 	margin-left: 30px;
+}
+
+.accountWindow {
+	position: absolute;
+	right: 50px;
+	top: 48px;
+	border: 1px solid gray;
+	background-color: white;
+	width: 200px;
+	height: 300px;
+	display: none;
+	z-index: 1;
 }
 
 /* --Window left-- */
@@ -288,6 +301,7 @@ html, body {
 	padding-left: 26px;
 	border-top-right-radius: 150px;
 	border-bottom-right-radius: 150px;
+	padding-right: 20px;
 }
 
 .selected {
