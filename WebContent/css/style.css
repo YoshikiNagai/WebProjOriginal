@@ -7,6 +7,12 @@
 /* 	display: flex; */
 }
 
+.window {
+	position: relative;
+	width: 100%;
+	height:100%;
+}
+
 .textCenter{
 	text-align: center;
 }
@@ -509,7 +515,7 @@ html, body {
 	background-position: center;
 }
 
-.mailerChildTitle {
+.mailerChildFrom {
 	width: 100px;
 	height: 100%;
 	position: relative;
@@ -523,6 +529,7 @@ html, body {
 	width: 200px;
 	height: 100%;
 	position: relative;
+	margin-left: 15px;
 	align-items: center;
 	display: -webkit-flex;
 	display: flex;
@@ -632,10 +639,15 @@ html, body {
 /* -- account create--*/
 
 .createAccountArea {
+	position: relative;
 	border-radius: 10px;
 	padding: 40px;
-	box-shadow: 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	box-shadow: 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.19);
 	clear: left;
+	width: 500px;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
 }
 
 .animationInputArea {
@@ -658,7 +670,14 @@ html, body {
     color: gray;
 }
 
-.createAccountArea input[type="text"],input[type="password"] {
+.mailAddressText {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	top: 35px;
+}
+
+.createAccountArea input[type="text"],input[type="password"],select {
 	position: relative;
 	background-color: transparent;
 	border: none;
@@ -667,6 +686,10 @@ html, body {
 	outline: none;
 	appearance: none;
 	top: 60%;
+}
+
+.createAccountArea select {
+	width: 170px;
 }
 
 .animationBorder {
@@ -685,5 +708,6 @@ html, body {
 
 
 .createAccountUnderArea {
-
+	position: absolute;
+	bottom: -10%;
 }

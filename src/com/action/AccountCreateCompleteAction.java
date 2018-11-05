@@ -19,21 +19,20 @@ public class AccountCreateCompleteAction extends ActionSupport implements Sessio
 	private String lastName;
 	private String phoneNumber;
 	private String birthDay;
-	private String gender = "man";
+	private String gender;
 
 	public Map<String, Object> session;
 	private AccountDAO dao = new AccountDAO();
 	private AccountDTO dto = new AccountDTO();
 
 	public String execute() throws SQLException, ParseException{
-		dto.setId(session.get("id").toString());
+		dto.setId(session.get("id").toString() + "@imail.com");
 		dto.setPassword(session.get("password").toString());
 		dto.setLastName(session.get("lastName").toString());
 		dto.setFirstName(session.get("firstName").toString());
 		dto.setPhoneNumber(session.get("phoneNumber").toString());
 		dto.setBirthDay(java.sql.Date.valueOf(session.get("birthDay").toString()));
-		dto.setGender(gender);
-		System.out.println(dto.getBirthDay());
+		dto.setGender(session.get("gender").toString());
 		dao.insert(dto);
 		return SUCCESS;
 	}

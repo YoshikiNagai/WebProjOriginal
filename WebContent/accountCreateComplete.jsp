@@ -14,5 +14,6 @@
 		<s:property value="password"/>
 		<s:property value="phoneNumber"/>
 		<s:property value="birthDay"/>
+		<a href='<s:url action="MailAction"/>'>mail</a>
 	</body>
 </html>

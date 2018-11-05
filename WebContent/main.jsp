@@ -65,8 +65,8 @@
 						<div class="starImg"></div>
 						<div class="hoverCircle"></div>
 					</div>
-					<div class="mailerChildTitle floatLeft">
-						<s:property value="title" />
+					<div class="mailerChildFrom floatLeft">
+						<s:property value="from" />
 					</div>
 					<div class="mailerChildText floatLeft">
 						<s:property value="text" />

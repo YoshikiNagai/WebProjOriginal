@@ -28,7 +28,7 @@
 				});
 			});
 		</script>
-		<div class="center">
+		<div class="window">
 			<div class="createAccountArea">
 				<div class="textCenter">
 					imail logo(yet)<br>
@@ -41,8 +41,8 @@
 						<input type="text" name="id">
 						<div class="animationBorder"></div>
 					</div>
-
-					<div class="animationInputArea floatLeft">
+					<br>
+					<div class="animationInputArea clearLeft">
 						<div class="animation">パスワード</div>
 						<input type="password" name="password">
 						<div class="animationBorder"></div>
@@ -56,14 +56,14 @@
 
 					<s:submit class="floatLeft" value="次へ"></s:submit>
 				</s:form>
+				<div class="createAccountUnderArea textCenter">
+					日本語
+					<a href="">ヘルプ</a>
+					<a href="">プライバシー</a>
+					<a href="">規約</a>
+				</div>
+			</div>
 
-			</div>
-			<div class="createAccountUnderArea">
-				日本語
-				<a href="">ヘルプ</a>
-				<a href="">プライバシー</a>
-				<a href="">規約</a>
-			</div>
 		</div>
 
 	</body>

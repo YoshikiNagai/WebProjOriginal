@@ -64,6 +64,7 @@ public class MailDAO extends DAO{
 													(resultSet) -> getMailDTO(resultSet),
 													string, string, string, search[1]
 													).getList();
+		//重複排除　もっと効率のいいやり方あるけどとりあえずこのまま
 		Set<MailDTO> set = new HashSet<>();
 		for(DTO dto: list){
 			set.add((MailDTO)dto);
@@ -73,7 +74,7 @@ public class MailDAO extends DAO{
 		retList.addAll(set);
 
 		if(retList != null){
-			//TODO:sort処理
+			//Sort処理
 			Collections.sort(retList, new MailComparator());
 		}
 		return retList;
