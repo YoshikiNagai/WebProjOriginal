@@ -12,8 +12,6 @@ update bool_test set bool_field=if(bool_field=1,0,1)
 
 star read の反転update	→　作ったけどidがint名の考えずに作ったからがばってそう
 
-右上のアカウントの○押したときに出てくるウィンドウを追加する
-
 各種選択可能箇所にポップアップウィンドウの追加　後回し
 
 CSSを整理する	多すぎて分けわかめ

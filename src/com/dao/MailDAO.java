@@ -17,7 +17,7 @@ public class MailDAO extends DAO{
 	//TODO:日付作ったらSQLのidを日付にする
 	public ArrayList<MailDTO> selectWhereTo(String id) throws Exception{
 		System.out.println("-------- Select where to = id");
-		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id asc",
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
 								).getList();
@@ -32,7 +32,7 @@ public class MailDAO extends DAO{
 	//TODO:同上
 	public ArrayList<MailDTO> selectWhereFrom(String id) throws Exception{
 		System.out.println("-------- Select where from = id");
-		ArrayList<DTO> mailList = executeQuery("select * from mail where `from` = ? order by id asc",
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `from` = ? order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
 								).getList();
@@ -46,7 +46,7 @@ public class MailDAO extends DAO{
 
 	public ArrayList<MailDTO> selectWhereStar(String id) throws Exception{
 		System.out.println("-------- Select where star = true");
-		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? and star = true order by id asc",
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? and star = true order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
 								).getList();

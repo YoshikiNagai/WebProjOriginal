@@ -53,6 +53,11 @@
 		<s:property value="#session.account.lastName"/>
 		<s:property value="#session.account.firstName"/>
 		<br>
+		<s:property value="#session.account.id"/>
+		<br>
+		<button>iMailアカウント</button>
+
+		<br>
 		<a href='<s:url action="LogoutAction"/>'>ログアウト</a>
 	</div>
 </div>

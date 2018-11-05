@@ -18,7 +18,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 	private int sendFlg = 0;
 
 	private String to;
-	private String from;
+	private String title;
 	private String text;
 
 	private String search;
@@ -42,7 +42,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 			System.out.println("-------- Send mail");
 			dto.setFrom(account.getId());
 			dto.setTo(to);
-			dto.setFrom(from);
+			dto.setTitle(title);
 			dto.setText(text);
 			mailDAO.insert(dto);
 		}
@@ -103,14 +103,6 @@ public class MailAction extends ActionSupport implements SessionAware{
 		this.to = to;
 	}
 
-	public String getFrom() {
-		return from;
-	}
-
-	public void setFrom(String from) {
-		this.from = from;
-	}
-
 	public String getText() {
 		return text;
 	}
@@ -141,6 +133,14 @@ public class MailAction extends ActionSupport implements SessionAware{
 
 	public void setSelectedLeftMenu(int selectedLeftMenu) {
 		this.selectedLeftMenu = selectedLeftMenu;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 
