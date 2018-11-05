@@ -38,6 +38,7 @@ public abstract class DAO {
 	 * @throws SQLException
 	 */
 	public int executeUpdate(String sql, String...setStrings) throws SQLException{
+		System.out.println("-------- Execute update");
 		int result = 0;
 		try{
 			PreparedStatement preparedStatement = commonPreparedStatement(sql, setStrings);
@@ -59,7 +60,7 @@ public abstract class DAO {
 	 * @throws SQLException
 	 */
 	public VariableLengthDTO executeQuery(String sql, SettingDTO settingDTO, String...setStrings) throws SQLException{
-		System.out.println("-------- Exequte query");
+		System.out.println("-------- Execute query");
 		ArrayList<DTO> list = new ArrayList<>();
 		try{
 			PreparedStatement preparedStatement = commonPreparedStatement(sql, setStrings);

@@ -3,6 +3,22 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <script type="text/javascript">
 	$(function() {
+		//選択した左メニュー
+		let selected = $("input[name='selectedLeftMenu']").attr("value");
+		switch(selected){
+		case "0":
+			$("#0").addClass("selected");
+			break;
+		case "1":
+			$("#1").addClass("selected");
+			break;
+		case "2":
+			$("#2").addClass("selected");
+			break;
+		default:
+
+		}
+
 		//メール作成画面のオンオフ
 		$(".createButton").on("click", function(){
 			if($(".inputWindow").css("display") =="none"){
@@ -31,14 +47,14 @@
 <!-- 		グローバル変数もどき -->
 		<input type="hidden" name="selectedLeftMenu" value='<s:property value="selectedLeftMenu"/>'>
 
-		<div class="leftMenuChild selected">
+		<div class="leftMenuChild" id="0">
 			<div class="menuIconImg iconBox"></div>
 			<div class="leftMenuChildText">受信トレイ</div>
 			<s:form action="MailAction">
 				<input type="hidden" name="selectedLeftMenu" value="0">
 			</s:form>
 		</div>
-		<div class="leftMenuChild">
+		<div class="leftMenuChild" id="1">
 			<div class="menuIconImg iconStar"></div>
 			<div class="leftMenuChildText">スター付き</div>
 			<s:form action="MailAction">
@@ -49,7 +65,7 @@
 <!-- 			<div class="menuIconImg iconSnooze"></div> -->
 <!-- 			<div class="leftMenuChildText">スヌーズ中(yet)</div> -->
 <!-- 		</div> -->
-		<div class="leftMenuChild">
+		<div class="leftMenuChild" id="2">
 			<div class="menuIconImg iconSent"></div>
 			<div class="leftMenuChildText">送信済み</div>
 			<s:form action="MailAction">

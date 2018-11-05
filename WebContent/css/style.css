@@ -292,6 +292,8 @@ html, body {
 
 .selected {
 	background-color: #FFE4E1;
+	color: red;
+	font-weight: bold;
 }
 
 .leftMenuChild:hover:not(.selected) {
