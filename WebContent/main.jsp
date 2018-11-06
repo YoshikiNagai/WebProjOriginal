@@ -6,6 +6,18 @@
 	function getSelectMailId(){
 		return selectMailId;
 	}
+	function read(){
+// 		$.ajax({
+// 			url: "./ReadAction",
+// 			type: "GET",
+// 			data: "json",
+// 			success: function(json){
+// 				alert(json.text);
+// 			}
+// 		})
+
+	}
+
 	$(function() {
 		//カテゴリー選択した場合にアンダーラインを出す
 		$(".category").on("click", function() {
@@ -68,10 +80,14 @@
 					<div class="mailerChildFrom floatLeft">
 						<s:property value="from" />
 					</div>
-					<div class="mailerChildText floatLeft">
+					<div class="mailerChildTitle floatLeft">
+						<s:property value="title" />
+					</div>
+					<div class="mailerChildText floatLeft gray">
+						 -
 						<s:property value="text" />
 					</div>
-					<div class="mailerChildETC floatLeft">etc area</div>
+<!-- 					<div class="mailerChildETC floatLeft">etc area</div> -->
 <!-- 					mailの内容 -->
 					<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
 					<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
@@ -93,7 +109,7 @@
 		</div>
 
 	</div>
-
+	<input type="button" onclick="read();" value="Test">
 	<!-- 	Mail Viewer -->
 	<div class="mailViewer displayNone">
 		<div class="upperBar">

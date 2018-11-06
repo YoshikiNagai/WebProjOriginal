@@ -50,14 +50,33 @@
 	<div class="account"><s:property value="#session.account.firstName" /></div>
 
 	<div class="accountWindow">
-		<s:property value="#session.account.lastName"/>
-		<s:property value="#session.account.firstName"/>
-		<br>
-		<s:property value="#session.account.id"/>
-		<br>
-		<button>iMailアカウント</button>
+		<div class="accountWindowTop">
+			<div class="acconutWindowImg floatLeft">
+				img(yet)
+			</div>
+			<div class="accountWindowInfo floatLeft">
+				<br>
+				<b>
+					<s:property value="#session.account.lastName"/>
+					<s:property value="#session.account.firstName"/>
+				</b>
+				<br>
+				<div class="gray">
+					<s:property value="#session.account.id"/>
+				</div>
+				<button class="floatLeft">iMailアカウント</button>
+				<br>
+			</div>
+		</div>
+
+		<div class="accountWindowBottom clearLeft">
+			<button class="floatLeft">アカウントを追加</button>
+			<a href='<s:url action="LogoutAction"/>'>ログアウト</a>
+		</div>
+
+
 
 		<br>
-		<a href='<s:url action="LogoutAction"/>'>ログアウト</a>
+
 	</div>
 </div>

@@ -54,13 +54,13 @@
 				<s:form action="AccountCreateConfirmAction">
 					<div class="animationInputArea floatLeft">
 						<div class="animation">姓</div>
-						<input type="text" name="lastName">
+						<input type="text" name="lastName" required>
 						<div class="animationBorder"></div>
 					</div>
 
 					<div class="animationInputArea floatLeft">
 						<div class="animation">名</div>
-						<input type="text" name="firstName">
+						<input type="text" name="firstName" required>
 						<div class="animationBorder"></div>
 					</div>
 
@@ -68,7 +68,7 @@
 
 					<div class="animationInputArea floatLeft">
 						<div class="animation">ユーザー名</div>
-						<input type="text" name="id">
+						<input type="text" name="id" required>
 						<div class="animationBorder"></div>
 
 					</div>
@@ -84,13 +84,13 @@
 
 					<div class="animationInputArea floatLeft">
 						<div class="animation">パスワード</div>
-						<input type="password" name="password">
+						<input type="password" name="password" required>
 						<div class="animationBorder"></div>
 					</div>
 
 					<div class="animationInputArea floatLeft">
 						<div class="animation">パスワードの確認</div>
-						<input type="password" name="confirmPassword">
+						<input type="password" name="confirmPassword" required>
 						<div class="animationBorder"></div>
 					</div>
 
@@ -101,13 +101,13 @@
 
 					<div class="animationInputArea clearLeft">
 						<div class="animation">電話番号</div>
-						<input type="text" name="phoneNumber">
+						<input type="text" name="phoneNumber" required>
 						<div class="animationBorder"></div>
 					</div>
 
 					<div class="animationInputArea clearLeft">
 						<div class="animation">誕生日</div>
-						<input type="text" name="birthDay">
+						<input type="text" name="birthDay" required>
 						<div class="animationBorder"></div>
 					</div>
 
