@@ -73,8 +73,9 @@ public class MailDAO extends DAO{
 	}
 
 	//既読にする
-	public int updateRead(int id)throws SQLException{
-		return this.executeUpdate("update mail set read = true where id = ?", String.valueOf(id));
+	public int updateRead(int id) throws SQLException{
+		System.out.println("id:" + id);
+		return this.executeUpdate("update mail set `read` = true where id = ?", String.valueOf(id));
 	}
 
 	//星をつけはずしする

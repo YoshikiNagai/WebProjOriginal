@@ -13,6 +13,14 @@
 	height:100%;
 }
 
+.bold {
+	font-weight: bold;
+}
+
+.normal {
+	font-weight: normal;
+}
+
 .textCenter{
 	text-align: center;
 }

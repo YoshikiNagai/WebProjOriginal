@@ -24,8 +24,11 @@ public abstract class DAO {
 	private PreparedStatement commonPreparedStatement(String sql, String...setStrings) throws SQLException{
 		connection = dbConnector.getConnection();
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		System.out.println("-------- Exec " + sql);
+
 		for(int index = 0; index < setStrings.length; index++){
 			preparedStatement.setString(index + 1, setStrings[index]);
+			System.out.println(setStrings[index]);
 		}
 		return preparedStatement;
 	}

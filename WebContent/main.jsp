@@ -6,16 +6,15 @@
 	function getSelectMailId(){
 		return selectMailId;
 	}
-	function read(){
-// 		$.ajax({
-// 			url: "./ReadAction",
-// 			type: "GET",
-// 			data: "json",
-// 			success: function(json){
-// 				alert(json.text);
-// 			}
-// 		})
-
+	function read(id){
+		$.ajax({
+			url: "./ReadAction",
+			type: "GET",
+			dataType: "json",
+			data: {"id": id},
+			success: function(json){
+			}
+		})
 	}
 
 	$(function() {
@@ -32,6 +31,7 @@
 			$(".test .getToVal").text($(this).find(".getToVal").val());
 			$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
 			$(".test .getTextVal").text($(this).find(".getTextVal").val());
+			read($(this).find(".id").val());
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
@@ -77,18 +77,31 @@
 						<div class="starImg"></div>
 						<div class="hoverCircle"></div>
 					</div>
-					<div class="mailerChildFrom floatLeft">
-						<s:property value="from" />
-					</div>
-					<div class="mailerChildTitle floatLeft">
-						<s:property value="title" />
-					</div>
-					<div class="mailerChildText floatLeft gray">
+					<s:if test="read == false">
+						<div class="mailerChildFrom floatLeft bold">
+							<s:property value="from" />
+						</div>
+						<div class="mailerChildTitle floatLeft bold">
+							<s:property value="title" />
+						</div>
+
+					</s:if>
+
+					<s:if test="read == true">
+						<div class="mailerChildFrom floatLeft">
+							<s:property value="from" />
+						</div>
+						<div class="mailerChildTitle floatLeft">
+							<s:property value="title" />
+						</div>
+					</s:if>
+					<div class="mailerChildText floatLeft gray normal">
 						 -
 						<s:property value="text" />
 					</div>
 <!-- 					<div class="mailerChildETC floatLeft">etc area</div> -->
 <!-- 					mailの内容 -->
+					<input class="id" type="hidden" value='<s:property value="id"/>'>
 					<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
 					<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 					<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
@@ -109,7 +122,6 @@
 		</div>
 
 	</div>
-	<input type="button" onclick="read();" value="Test">
 	<!-- 	Mail Viewer -->
 	<div class="mailViewer displayNone">
 		<div class="upperBar">
