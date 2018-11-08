@@ -32,6 +32,15 @@
 			$(this).append('<div class="categorySelected"></div>');
 		});
 
+		$(".mailerChild").on({
+			"mouseenter": function(){
+				$(this).find(".mailerChildETC").removeClass("displayNone");
+			},
+			"mouseleave": function(){
+				$(this).find(".mailerChildETC").addClass("displayNone");
+			}
+		});
+
 		//mailerからviewerへ切り替え
 		$(".mailerChildTitle,.mailerChildFrom,.mailerChildText").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
@@ -61,6 +70,10 @@
 			}
 
 			star($(this).find(".id").val());
+		});
+
+		$(".checkBox").on("click", function(){
+
 		});
 	});
 </script>
@@ -152,7 +165,16 @@
 						<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 						<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 					</div>
-<!-- 					<div class="mailerChildETC floatLeft">etc area</div> -->
+					<div class="mailerChildETC floatLeft displayNone">
+						<div class="mailerChildDustBox floatLeft">
+							<div class="dustBoxImg"></div>
+							<div class="hoverCircle"></div>
+						</div>
+						<div class="mailerChildMail">
+							<div class="mailImg"></div>
+							<div class="hoverCircle"></div>
+						</div>
+					</div>
 <!-- 					mailの内容 -->
 					<input class="id" type="hidden" value='<s:property value="id"/>'>
 					<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
