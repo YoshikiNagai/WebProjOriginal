@@ -2,10 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <script type="text/javascript">
-	let selectMailId;
-	function getSelectMailId(){
-		return selectMailId;
-	}
+	let tempThis;
 	function read(id){
 		$.ajax({
 			url: "./ReadAction",
@@ -23,6 +20,7 @@
 			$(".categorySelected").remove();
 			$(this).append('<div class="categorySelected"></div>');
 		});
+
 		//mailerからviewerへ切り替え
 		$(".mailerChild").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
@@ -32,11 +30,14 @@
 			$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
 			$(".test .getTextVal").text($(this).find(".getTextVal").val());
 			read($(this).find(".id").val());
+			tempThis = this;
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
 			$(".mailBox").removeClass("displayNone");
 			$(".mailViewer").addClass("displayNone");
+			$(tempThis).find(".mailerChildFrom").removeClass("bold");
+			$(tempThis).find(".mailerChildTitle").removeClass("bold");
 		});
 
 

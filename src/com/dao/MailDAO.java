@@ -74,7 +74,6 @@ public class MailDAO extends DAO{
 
 	//既読にする
 	public int updateRead(int id) throws SQLException{
-		System.out.println("id:" + id);
 		return this.executeUpdate("update mail set `read` = true where id = ?", String.valueOf(id));
 	}
 
@@ -89,7 +88,6 @@ public class MailDAO extends DAO{
 
 	public ArrayList<MailDTO> search(String...search) throws SQLException, Exception{
 		String string = "%" + search[0] + "%";
-		System.out.println(search[1]);
 		ArrayList<DTO> list = this.executeQuery("select * from mail where (title like ? or text like ? or `from` like ?) and `to` = ?",
 													(resultSet) -> getMailDTO(resultSet),
 													string, string, string, search[1]
