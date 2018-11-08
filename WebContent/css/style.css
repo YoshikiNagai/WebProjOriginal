@@ -559,13 +559,24 @@ html, body {
 	align-items: center;
 	display: -webkit-flex;
 	display: flex;
+	transition: 0.3s;
 }
 
-.starImg{
+.starImg {
 	position: absolute;
 	width: 40px;
 	height: 50px;
 	background-image: url("../picture/star.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.star2Img {
+	position: absolute;
+	width: 40px;
+	height: 50px;
+	background-image: url("../picture/star2.png");
 	background-size: 20px;
 	background-repeat: no-repeat;
 	background-position: center;

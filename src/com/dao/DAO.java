@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import com.dto.DTO;
 import com.util.DBConnector;
 
+/**
+ * ラムダ式用インターフェース
+ * @author
+ *
+ */
 interface SettingDTO{
 	public abstract DTO run(ResultSet resultSet) throws SQLException;
 }

@@ -14,6 +14,17 @@
 		})
 	}
 
+	function star(id){
+		$.ajax({
+			url: "./StarAction",
+			type: "GET",
+			dataType: "json",
+			data: {"id": id},
+			success: function(json){
+			}
+		})
+	}
+
 	$(function() {
 		//カテゴリー選択した場合にアンダーラインを出す
 		$(".category").on("click", function() {
@@ -22,7 +33,7 @@
 		});
 
 		//mailerからviewerへ切り替え
-		$(".mailerChild").on("click", function(e) {
+		$(".mailerChildTitle,.mailerChildFrom,.mailerChildText").on("click", function(e) {
 			$(".mailBox").addClass("displayNone");
 			$(".mailViewer").removeClass("displayNone");
 			$(".test .getFromVal").text($(this).find(".getFromVal").val());
@@ -30,7 +41,7 @@
 			$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
 			$(".test .getTextVal").text($(this).find(".getTextVal").val());
 			read($(this).find(".id").val());
-			tempThis = this;
+			tempThis = $(".mailerChild");
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
@@ -40,7 +51,17 @@
 			$(tempThis).find(".mailerChildTitle").removeClass("bold");
 		});
 
+		$(".mailerChildStar").on("click", function() {
+			if($(this).find("div").hasClass("starImg")){
+				$(this).find(".starImg").addClass("star2Img");
+				$(this).find(".starImg").removeClass("starImg");
+			}else{
+				$(this).find(".star2Img").addClass("starImg");
+				$(this).find(".star2Img").removeClass("star2Img");
+			}
 
+			star($(this).find(".id").val());
+		});
 	});
 </script>
 <div class="main">
@@ -75,30 +96,61 @@
 						<div class="hoverCircle"></div>
 					</div>
 					<div class="mailerChildStar floatLeft">
-						<div class="starImg"></div>
+						<s:if test="star == false">
+							<div class="starImg"></div>
+						</s:if>
+						<s:else>
+							<div class="star2Img"></div>
+						</s:else>
 						<div class="hoverCircle"></div>
+						<input class="id" type="hidden" value='<s:property value="id"/>'>
 					</div>
 					<s:if test="read == false">
-						<div class="mailerChildFrom floatLeft bold">
+						<div class="mailerChildFrom floatLeft bold <s:property value='#stat.index'/>">
 							<s:property value="from" />
+							<input class="id" type="hidden" value='<s:property value="id"/>'>
+							<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 						</div>
 						<div class="mailerChildTitle floatLeft bold">
 							<s:property value="title" />
+							<input class="id" type="hidden" value='<s:property value="id"/>'>
+							<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 						</div>
 
 					</s:if>
 
 					<s:if test="read == true">
-						<div class="mailerChildFrom floatLeft">
+						<div class="mailerChildFrom floatLeft <s:property value='#stat.index'/>">
 							<s:property value="from" />
+							<input class="id" type="hidden" value='<s:property value="id"/>'>
+							<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 						</div>
 						<div class="mailerChildTitle floatLeft">
 							<s:property value="title" />
+							<input class="id" type="hidden" value='<s:property value="id"/>'>
+							<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 						</div>
 					</s:if>
 					<div class="mailerChildText floatLeft gray normal">
 						 -
 						<s:property value="text" />
+						<input class="id" type="hidden" value='<s:property value="id"/>'>
+						<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+						<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+						<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+						<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 					</div>
 <!-- 					<div class="mailerChildETC floatLeft">etc area</div> -->
 <!-- 					mailの内容 -->
