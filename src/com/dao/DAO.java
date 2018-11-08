@@ -33,7 +33,6 @@ public abstract class DAO {
 
 		for(int index = 0; index < setStrings.length; index++){
 			preparedStatement.setString(index + 1, setStrings[index]);
-			System.out.println(setStrings[index]);
 		}
 		return preparedStatement;
 	}

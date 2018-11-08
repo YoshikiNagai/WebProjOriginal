@@ -40,6 +40,13 @@
 				<param name="root">test</param>
 			</result>
 		</action>
+
+		<action name="UnreadAction" class="com.action.UnreadAction" method="execute">
+			<result name="success" type="json">
+				<param name="root">test</param>
+			</result>
+		</action>
+
 		<action name="StarAction" class="com.action.StarAction" method="execute">
 			<result name="success" type="json">
 				<param name="root">test</param>

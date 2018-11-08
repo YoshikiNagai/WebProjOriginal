@@ -698,6 +698,42 @@ html, body {
 
 }
 
+.informationArea {
+	position: fixed;
+	width: 350px;
+	height: 50px;
+	left: 20px;
+	bottom: 20px;
+	background-color: #222222;
+	color: white;
+	border-radius: 5px;
+}
+
+.informationAreaText {
+	position: relative;
+	width: calc(80% - 20px);
+	height: 100%;
+	padding-left: 20px;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.informationAreaExit {
+	position: relative;
+	right: 0;
+	width: 20%;
+	height: 100%;
+	background-image: url("../picture/cross.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
 .right {
 	width: 50px;
 	height: calc(100% - 66px);

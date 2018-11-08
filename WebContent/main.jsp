@@ -2,10 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <script type="text/javascript">
-	let tempThis;
 	function read(id){
 		$.ajax({
 			url: "./ReadAction",
+			type: "GET",
+			dataType: "json",
+			data: {"id": id},
+			success: function(json){
+			}
+		})
+	}
+
+	function unread(id){
+		$.ajax({
+			url: "./UnreadAction",
 			type: "GET",
 			dataType: "json",
 			data: {"id": id},
@@ -23,6 +33,11 @@
 			success: function(json){
 			}
 		})
+	}
+
+	function information(text){
+		$(".informationAreaText").text(text);
+		$(".informationArea").removeClass("displayNone");
 	}
 
 	$(function() {
@@ -50,16 +65,19 @@
 			$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
 			$(".test .getTextVal").text($(this).find(".getTextVal").val());
 			read($(this).find(".id").val());
-			tempThis = $(".mailerChild");
+			console.log(this);
+			console.log($(this).parent())
+			$(this).parent().find(".mailerChildTitle").removeClass("bold");
+			$(this).parent().find(".mailerChildFrom").removeClass("bold");
 		});
 		//Viewからmailerに戻るボタンを押したとき
 		$(".backButton").on("click", function(){
 			$(".mailBox").removeClass("displayNone");
 			$(".mailViewer").addClass("displayNone");
-			$(tempThis).find(".mailerChildFrom").removeClass("bold");
-			$(tempThis).find(".mailerChildTitle").removeClass("bold");
+
 		});
 
+		//スター付け
 		$(".mailerChildStar").on("click", function() {
 			if($(this).find("div").hasClass("starImg")){
 				$(this).find(".starImg").addClass("star2Img");
@@ -72,8 +90,29 @@
 			star($(this).find(".id").val());
 		});
 
+		//未読既読切り替え
+		$(".mailerChildMail").on("click",function(){
+			let id = $(this).find("input.id").val();
+			let $child = $(this).parent().parent();
+			if($child.find(".mailerChildFrom").hasClass("bold")){
+				$child.find(".mailerChildFrom").removeClass("bold");
+				$child.find(".mailerChildTitle").removeClass("bold");
+				read(id);
+				information("既読にしました。");
+			}else{
+				$child.find(".mailerChildFrom").addClass("bold");
+				$child.find(".mailerChildTitle").addClass("bold");
+				unread(id);
+				information("未読にしました。");
+			}
+		});
+
 		$(".checkBox").on("click", function(){
 
+		});
+
+		$(".informationAreaExit").on("click", function(){
+			$(".informationArea").addClass("displayNone");
 		});
 	});
 </script>
@@ -173,6 +212,7 @@
 						<div class="mailerChildMail">
 							<div class="mailImg"></div>
 							<div class="hoverCircle"></div>
+							<input class="id" type="hidden" value='<s:property value="id"/>'>
 						</div>
 					</div>
 <!-- 					mailの内容 -->
@@ -221,4 +261,11 @@
 			<div class="getTextVal"></div>
 		</div>
 	</div>
+	<!-- Information -->
+	<div class="informationArea displayNone">
+			<div class="informationAreaText floatLeft"></div>
+			<div class="informationAreaExit floatLeft">
+				<div class="hoverCircle"></div>
+			</div>
+		</div>
 </div>
