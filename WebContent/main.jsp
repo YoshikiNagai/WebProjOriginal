@@ -99,11 +99,18 @@
 				$child.find(".mailerChildTitle").removeClass("bold");
 				read(id);
 				information("既読にしました。");
+				$child.find(".mail2Img").addClass("mailImg");
+				$child.find(".mail2Img").removeClass("mail2Img");
+
+
 			}else{
 				$child.find(".mailerChildFrom").addClass("bold");
 				$child.find(".mailerChildTitle").addClass("bold");
 				unread(id);
 				information("未読にしました。");
+				$child.find(".mailImg").addClass("mail2Img");
+				$child.find(".mailImg").removeClass("mailImg");
+
 			}
 		});
 
@@ -209,8 +216,13 @@
 							<div class="dustBoxImg"></div>
 							<div class="hoverCircle"></div>
 						</div>
-						<div class="mailerChildMail">
-							<div class="mailImg"></div>
+						<div class="mailerChildMail floatLeft">
+							<s:if test="read == true">
+								<div class="mailImg"></div>
+							</s:if>
+							<s:else>
+								<div class="mail2Img"></div>
+							</s:else>
 							<div class="hoverCircle"></div>
 							<input class="id" type="hidden" value='<s:property value="id"/>'>
 						</div>
