@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="main">
-
+	<div class="popupWindow displayNone pointerEventsNone"></div>
 	<!-- Mail Box -->
 	<div class="mailBox">
 		<div class="upperBar">
@@ -108,7 +108,8 @@
 							</div>
 						</s:if>
 						<s:else>
-							<div class="mailerChildDustBox floatLeft">
+							<div class="mailerChildDustBox floatLeft popup">
+								<input class="popupText" type="hidden" value="ゴミ箱に入れる">
 								<div class="dustBoxImg"></div>
 								<div class="hoverCircle"></div>
 							</div>
@@ -177,4 +178,7 @@
             <div class="hoverCircle"></div>
         </div>
     </div>
+	
+	
 </div>
+	

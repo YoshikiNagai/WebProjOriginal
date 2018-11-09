@@ -179,4 +179,22 @@ $(function() {
 			$(".accountWindow").css("display", "none");
 		}
 	});
+	
+	//	説明用ポップアップウィンドウ
+	$(".popup").on({
+		"mouseenter":function(){
+			let text = $(this).find(".popupText").val();
+			$(".popupWindow").removeClass("displayNone");
+			$(".popupWindow").offset($(this).offset());
+			$(".popupWindow").offset().top = $(".popupWindow").offset().top + 40;
+			console.log($(".popupWindow").offset().top);
+			console.log($(".popupWindow").offset().top + 40);
+			$(".popupWindow").offset({top:$(".popupWindow").offset().top + 40, left:$(".popupWindow").offset().left})
+			$(".popupWindow").text(text);
+		},
+		"mouseleave": function(){
+			$(".popupWindow").addClass("displayNone");
+			
+		}
+	});
 });
