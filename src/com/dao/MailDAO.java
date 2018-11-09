@@ -110,6 +110,10 @@ public class MailDAO extends DAO{
 		return this.executeUpdate("delete from mail where id = ?", id.toString());
 	}
 
+	public int deleteAll() throws SQLException{
+		return this.executeUpdate("delete from mail where `delete` = true");
+	}
+
 	public ArrayList<MailDTO> search(String...search) throws SQLException, Exception{
 		String string = "%" + search[0] + "%";
 		ArrayList<DTO> list = this.executeQuery("select * from mail where (title like ? or text like ? or `from` like ?) and `to` = ?",

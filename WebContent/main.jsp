@@ -29,8 +29,12 @@
 <!--			削除画面の場合-->
 			<s:if test="selectedLeftMenu == 3">
 				<div class="deleteButton">
-					<div class="deleteButtonText">ゴミ箱を今すぐ空にする</div>
-					<div class="deleteButtonHoverCircle"></div>
+					<div class="deleteButtonHoverCircle cursorPointer"></div>
+					<div class="deleteButtonText pointerEventsNone">ゴミ箱を今すぐ空にする</div>
+					<s:form method="post" action="MailAction">
+						<input type="hidden" name="selectedLeftMenu" value="3">
+						<input type="hidden" name="deleteFlg" value="1">
+					</s:form>
 				</div>
 			</s:if>
 			<s:iterator value="mailList">

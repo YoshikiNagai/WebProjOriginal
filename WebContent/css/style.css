@@ -7,6 +7,10 @@
 /* 	display: flex; */
 }
 
+.cursorPointer {
+	cursor: pointer;
+}
+
 .window {
 	position: relative;
 	width: 100%;
@@ -537,22 +541,33 @@ html, body {
 	
 	background-color: #f5f5f5;
 	border-radius: 5px;
-	margin: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	
 }
 
 .deleteButtonText {
+	position: absolute;
 	line-height: 50px;
 	text-align: center;
+	
+	color: deepskyblue;
 }
 
 .deleteButtonHoverCircle {
 	position: absolute;
 	height: 40px;
-	width: 100px;
+	width: 200px;
+	border-radius: 5px;
+	transition: 0.5s;
 }
 
 .deleteButtonHoverCircle:hover {
-	background-color: black;
+	background-color: #E6E6FA;
 }
 
 .mailerChild {

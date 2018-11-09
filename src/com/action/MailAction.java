@@ -48,6 +48,11 @@ public class MailAction extends ActionSupport implements SessionAware{
 			mailDAO.insert(dto);
 		}
 
+		if(deleteFlg == 1){
+			System.out.println("-------- Delete mails");
+			mailDAO.deleteAll();
+		}
+
 		//ログインIDのメールリストを取得する
 		//検索時
 		if(searchFlg == 1){

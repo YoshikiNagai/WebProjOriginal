@@ -8,7 +8,7 @@ $(function() {
 		STAR: "StarAction",
 		DELETE: "DeleteAction"
 	};
-	
+
 	/**
 	 * フラグ系アクションのアップデート
 	 * @param {}id
@@ -25,6 +25,10 @@ $(function() {
 			}
 		});
 	}
+
+	$(".deleteButton").on("click", function(){
+		$(this).find("form").submit();
+	});
 
 	/**
 	 * 削除時などに表示されるポップアップウィンドウ
