@@ -47,8 +47,6 @@ public class MailAction extends ActionSupport implements SessionAware{
 			mailDAO.insert(dto);
 		}
 
-
-
 		//ログインIDのメールリストを取得する
 		//検索時
 		if(searchFlg == 1){
@@ -69,12 +67,14 @@ public class MailAction extends ActionSupport implements SessionAware{
 				//送信済み
 				mailList = mailDAO.selectWhereFrom(account.getId());
 				break;
+			case 3:
+				//ゴミ箱
+				mailList = mailDAO.selectWhereDelete(account.getId());
+				break;
 			default:
 				throw new Exception("えらー");
 			}
 		}
-
-
 		return SUCCESS;
 	}
 

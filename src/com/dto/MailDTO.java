@@ -13,6 +13,7 @@ public class MailDTO extends DTO{
 	private String text;
 	private boolean star;
 	private boolean read;
+	private boolean delete;
 
 	@Override
 	public boolean equals(Object obj){
@@ -104,6 +105,14 @@ public class MailDTO extends DTO{
 
 	public void setRead(boolean read) {
 		this.read = read;
+	}
+
+	public boolean getDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
 	}
 
 }

@@ -17,7 +17,8 @@ create table mail(
 	title varchar(255),
 	text varchar(255),
 	star boolean,
-	`read` boolean
+	`read` boolean,
+	`delete` boolean
 );
 
 drop table if exists account;

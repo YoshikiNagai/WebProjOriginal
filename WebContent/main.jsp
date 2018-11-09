@@ -1,128 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<script type="text/javascript">
-	function read(id){
-		$.ajax({
-			url: "./ReadAction",
-			type: "GET",
-			dataType: "json",
-			data: {"id": id},
-			success: function(json){
-			}
-		})
-	}
-
-	function unread(id){
-		$.ajax({
-			url: "./UnreadAction",
-			type: "GET",
-			dataType: "json",
-			data: {"id": id},
-			success: function(json){
-			}
-		})
-	}
-
-	function star(id){
-		$.ajax({
-			url: "./StarAction",
-			type: "GET",
-			dataType: "json",
-			data: {"id": id},
-			success: function(json){
-			}
-		})
-	}
-
-	function information(text){
-		$(".informationAreaText").text(text);
-		$(".informationArea").removeClass("displayNone");
-	}
-
-	$(function() {
-		//カテゴリー選択した場合にアンダーラインを出す
-		$(".category").on("click", function() {
-			$(".categorySelected").remove();
-			$(this).append('<div class="categorySelected"></div>');
-		});
-
-		$(".mailerChild").on({
-			"mouseenter": function(){
-				$(this).find(".mailerChildETC").removeClass("displayNone");
-			},
-			"mouseleave": function(){
-				$(this).find(".mailerChildETC").addClass("displayNone");
-			}
-		});
-
-		//mailerからviewerへ切り替え
-		$(".mailerChildTitle,.mailerChildFrom,.mailerChildText").on("click", function(e) {
-			$(".mailBox").addClass("displayNone");
-			$(".mailViewer").removeClass("displayNone");
-			$(".test .getFromVal").text($(this).find(".getFromVal").val());
-			$(".test .getToVal").text($(this).find(".getToVal").val());
-			$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
-			$(".test .getTextVal").text($(this).find(".getTextVal").val());
-			read($(this).find(".id").val());
-			console.log(this);
-			console.log($(this).parent())
-			$(this).parent().find(".mailerChildTitle").removeClass("bold");
-			$(this).parent().find(".mailerChildFrom").removeClass("bold");
-		});
-		//Viewからmailerに戻るボタンを押したとき
-		$(".backButton").on("click", function(){
-			$(".mailBox").removeClass("displayNone");
-			$(".mailViewer").addClass("displayNone");
-
-		});
-
-		//スター付け
-		$(".mailerChildStar").on("click", function() {
-			if($(this).find("div").hasClass("starImg")){
-				$(this).find(".starImg").addClass("star2Img");
-				$(this).find(".starImg").removeClass("starImg");
-			}else{
-				$(this).find(".star2Img").addClass("starImg");
-				$(this).find(".star2Img").removeClass("star2Img");
-			}
-
-			star($(this).find(".id").val());
-		});
-
-		//未読既読切り替え
-		$(".mailerChildMail").on("click",function(){
-			let id = $(this).find("input.id").val();
-			let $child = $(this).parent().parent();
-			if($child.find(".mailerChildFrom").hasClass("bold")){
-				$child.find(".mailerChildFrom").removeClass("bold");
-				$child.find(".mailerChildTitle").removeClass("bold");
-				read(id);
-				information("既読にしました。");
-				$child.find(".mail2Img").addClass("mailImg");
-				$child.find(".mail2Img").removeClass("mail2Img");
-
-
-			}else{
-				$child.find(".mailerChildFrom").addClass("bold");
-				$child.find(".mailerChildTitle").addClass("bold");
-				unread(id);
-				information("未読にしました。");
-				$child.find(".mailImg").addClass("mail2Img");
-				$child.find(".mailImg").removeClass("mailImg");
-
-			}
-		});
-
-		$(".checkBox").on("click", function(){
-
-		});
-
-		$(".informationAreaExit").on("click", function(){
-			$(".informationArea").addClass("displayNone");
-		});
-	});
-</script>
 <div class="main">
 
 	<!-- Mail Box -->
@@ -212,10 +90,18 @@
 						<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
 					</div>
 					<div class="mailerChildETC floatLeft displayNone">
-						<div class="mailerChildDustBox floatLeft">
-							<div class="dustBoxImg"></div>
-							<div class="hoverCircle"></div>
-						</div>
+						<s:if test="delete == true">
+							<div class="mailerChildDustBox floatLeft pointerEventsNone opacity05">
+								<div class="dustBoxImg"></div>
+								<div class="hoverCircle"></div>
+							</div>
+						</s:if>
+						<s:else>
+							<div class="mailerChildDustBox floatLeft">
+								<div class="dustBoxImg"></div>
+								<div class="hoverCircle"></div>
+							</div>
+						</s:else>
 						<div class="mailerChildMail floatLeft">
 							<s:if test="read == true">
 								<div class="mailImg"></div>

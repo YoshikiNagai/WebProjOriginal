@@ -1,41 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<script type="text/javascript">
-	$(function() {
-		//選択した左メニュー
-		let selected = $("input[name='selectedLeftMenu']").attr("value");
-		switch(selected){
-		case "0":
-			$("#0").addClass("selected");
-			break;
-		case "1":
-			$("#1").addClass("selected");
-			break;
-		case "2":
-			$("#2").addClass("selected");
-			break;
-		default:
-
-		}
-
-		//メール作成画面のオンオフ
-		$(".createButton").on("click", function(){
-			if($(".inputWindow").css("display") =="none"){
-				$(".inputWindow").css("display", "inline");
-			}else{
-				$(".inputWindow").css("display", "none");
-			}
-		});
-
-		$(".leftMenuChild").on("click", function(){
-			$(".leftMenuChild").removeClass("selected");
-			$(this).addClass("selected");
-			$(this).find("form").submit();
-		});
-
-	});
-</script>
 <div class="left">
 	<div class="createButtonArea">
 		<div class="createButton">
@@ -61,10 +26,10 @@
 				<input type="hidden" name="selectedLeftMenu" value="1">
 			</s:form>
 		</div>
-		<div class="leftMenuChild">
-			<div class="menuIconImg iconSnooze"></div>
-			<div class="leftMenuChildText">スヌーズ中(yet)</div>
-		</div>
+<!-- 		<div class="leftMenuChild"> -->
+<!-- 			<div class="menuIconImg iconSnooze"></div> -->
+<!-- 			<div class="leftMenuChildText">スヌーズ中(yet)</div> -->
+<!-- 		</div> -->
 		<div class="leftMenuChild" id="2">
 			<div class="menuIconImg iconSent"></div>
 			<div class="leftMenuChildText">送信済み</div>
@@ -72,14 +37,22 @@
 				<input type="hidden" name="selectedLeftMenu" value="2">
 			</s:form>
 		</div>
-		<div class="leftMenuChild">
-			<div class="menuIconImg iconDraft"></div>
-			<div class="leftMenuChildText">下書き(yet)</div>
+<!-- 		<div class="leftMenuChild"> -->
+<!-- 			<div class="menuIconImg iconDraft"></div> -->
+<!-- 			<div class="leftMenuChildText">下書き(yet)</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="leftMenuChild"> -->
+<!-- 			<div class="menuIconImg iconUnderArrow"></div> -->
+<!-- 			<div class="leftMenuChildText">もっと見る(yet)</div> -->
+<!-- 		</div> -->
+		<div class="leftMenuChild" id="3">
+			<div class="menuIconImg iconDust"></div>
+			<div class="leftMenuChildText">ゴミ箱</div>
+			<s:form action="MailAction">
+				<input type="hidden" name="selectedLeftMenu" value="3">
+			</s:form>
 		</div>
-		<div class="leftMenuChild">
-			<div class="menuIconImg iconUnderArrow"></div>
-			<div class="leftMenuChildText">もっと見る(yet)</div>
-		</div>
+
 	</div>
 	<div class="hr"></div>
 	<div class="chatArea">

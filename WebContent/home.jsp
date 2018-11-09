@@ -8,14 +8,11 @@
 		<title>Home画面</title>
 	</head>
 	<body>
-	<%
-		int rand = (int)(Math.random() * 100);
-	%>
-		<jsp:include page="header.jsp?<%=rand %>" />
-		<jsp:include page="left.jsp?<%=rand %>" />
-		<jsp:include page="main.jsp?<%=rand %>" />
+		<script type="text/javascript" src="./js/home.js"></script>
+
+		<jsp:include page="header.jsp" />
+		<jsp:include page="left.jsp" />
+		<jsp:include page="main.jsp" />
 		<jsp:include page="right.jsp" />
-
-
 	</body>
 </html>

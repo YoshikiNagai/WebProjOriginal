@@ -17,7 +17,7 @@ public class MailDAO extends DAO{
 	//TODO:日付作ったらSQLのidを日付にする
 	public ArrayList<MailDTO> selectWhereTo(String id) throws Exception{
 		System.out.println("-------- Select where to = id");
-		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? order by id desc",
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? and `delete` = false order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
 								).getList();
@@ -32,7 +32,7 @@ public class MailDAO extends DAO{
 	//TODO:同上
 	public ArrayList<MailDTO> selectWhereFrom(String id) throws Exception{
 		System.out.println("-------- Select where from = id");
-		ArrayList<DTO> mailList = executeQuery("select * from mail where `from` = ? order by id desc",
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `from` = ? and `delete` = false order by id desc",
 										(resultSet) -> getMailDTO(resultSet),
 										id
 								).getList();
@@ -58,10 +58,24 @@ public class MailDAO extends DAO{
 		return resultList;
 	}
 
+	public ArrayList<MailDTO> selectWhereDelete(String id) throws Exception{
+		System.out.println("-------- Select where delete = true");
+		ArrayList<DTO> mailList = executeQuery("select * from mail where `to` = ? and `delete` = true order by id desc",
+										(resultSet) -> getMailDTO(resultSet),
+										id
+								).getList();
+		ArrayList<MailDTO> resultList = new ArrayList<>();
+		if(mailList == null)return resultList;
+		for(DTO dto: mailList){
+			resultList.add((MailDTO)dto);
+		}
+		return resultList;
+	}
+
 	public int insert(MailDTO dto) throws SQLException{
 		DateUtil du = new DateUtil();
 		return this.executeUpdate(
-				"insert into mail values(0, ?,?,?,?,?,?,?,false,false)",
+				"insert into mail values(0, ?,?,?,?,?,?,?,false,false,false)",
 				dto.getFrom(),
 				dto.getFromName(),
 				dto.getTo(),
@@ -85,6 +99,11 @@ public class MailDAO extends DAO{
 	//星をつけはずしする
 	public int updateStar(int id)throws SQLException{
 		return this.executeUpdate("update mail set star = if(star = 1, 0, 1) where id = ?", String.valueOf(id));
+	}
+
+	//deleteフラグを立てる
+	public int updateDelete(int id)throws SQLException{
+		return this.executeUpdate("update mail set `delete` = true where id = ?", String.valueOf(id));
 	}
 
 	public int delete(int...id) throws SQLException{
@@ -125,6 +144,7 @@ public class MailDAO extends DAO{
 		dto.setText(resultSet.getString("text"));
 		dto.setStar(resultSet.getBoolean("star"));
 		dto.setRead(resultSet.getBoolean("read"));
+		dto.setDelete(resultSet.getBoolean("delete"));
 		return dto;
 	}
 }
