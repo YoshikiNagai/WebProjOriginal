@@ -110,6 +110,10 @@
 						<input type="text" name="birthDay" required>
 						<div class="animationBorder"></div>
 					</div>
+					<div>
+						2018-01-01の形式で入力してください<br>
+					</div>
+
 
 					<div class="animationInputArea">
 						<div class="animation">性別</div>

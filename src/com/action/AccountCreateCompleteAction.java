@@ -7,7 +7,9 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.dao.AccountDAO;
+import com.dao.MailDAO;
 import com.dto.AccountDTO;
+import com.dto.MailDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 //TODO:genderなおす
@@ -24,6 +26,8 @@ public class AccountCreateCompleteAction extends ActionSupport implements Sessio
 	public Map<String, Object> session;
 	private AccountDAO dao = new AccountDAO();
 	private AccountDTO dto = new AccountDTO();
+	private MailDAO mailDAO = new MailDAO();
+	private MailDTO mailDTO = new MailDTO();
 
 	public String execute() throws SQLException, ParseException{
 		dto.setId(session.get("id").toString() + "@imail.com");
@@ -34,6 +38,12 @@ public class AccountCreateCompleteAction extends ActionSupport implements Sessio
 		dto.setBirthDay(java.sql.Date.valueOf(session.get("birthDay").toString()));
 		dto.setGender(session.get("gender").toString());
 		dao.insert(dto);
+
+		mailDTO.setFrom("admin");
+		mailDTO.setTo(dto.getId());
+		mailDTO.setTitle("imailへようこそ！");
+		mailDTO.setText(dto.getLastName()+dto.getFirstName()+"さん。imailへようこそ！\nバグの報告はadmin@imail.comまでお願いします。");
+		mailDAO.insert(mailDTO);
 		return SUCCESS;
 	}
 

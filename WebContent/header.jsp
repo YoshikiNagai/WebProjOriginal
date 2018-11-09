@@ -7,7 +7,7 @@
 		<div></div>
 		<div></div>
 	</div>
-	<img alt="logo" src="./picture/logo.png">
+	<img alt="logo" src="./picture/iMail.png">
 	<div class="searchBar">
 		<img class="searchBarLeft" alt="search" src="./picture/search.png">
 		<s:form action="MailAction">

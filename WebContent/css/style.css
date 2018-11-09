@@ -585,8 +585,9 @@ html, body {
 .mailerChild:hover {
 	position: relative;
 	border: 0.5px solid lightgray;
+	box-sizing: border-box;
 	box-shadow: 0 2px 1px -1px gray;
-	z-index: 0;
+	z-index: 1;
 }
 
 .mailerChildCheckBox {
