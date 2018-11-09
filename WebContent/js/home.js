@@ -1,35 +1,39 @@
-
-
-//flag系アクションの管理
-const Action = {
+$(function() {
+	/**
+	 * フラグ系アクションの一覧
+	 */
+	const Action = {
 		READ: "ReadAction",
 		UNREAD: "UnreadAction",
 		STAR: "StarAction",
 		DELETE: "DeleteAction"
-};
+	};
+	
+	/**
+	 * フラグ系アクションのアップデート
+	 * @param {}id
+	 * @param {Action}actionName
+	 */
+	function updateFlgs(id, actionName){
+		actionName = "./" + actionName;
+		$.ajax({
+			url: actionName,
+			type: "GET",
+			dataType: "json",
+			data: {"id": id},
+			success: function(json){
+			}
+		});
+	}
 
-function updateFlgs(id, actionName){
-	actionName = "./" + actionName;
-	$.ajax({
-		url: actionName,
-		type: "GET",
-		dataType: "json",
-		data: {"id": id},
-		success: function(json){
-		}
-	});
-}
-
-
-function information(text){
-	$(".informationAreaText").text(text);
-	$(".informationArea").removeClass("displayNone");
-}
-
-$(function() {
-//	-- login.jsp --
-
-
+	/**
+	 * 削除時などに表示されるポップアップウィンドウ
+	 * @param text
+	 */
+	function information(text){
+		$(".informationAreaText").text(text);
+		$(".informationArea").removeClass("displayNone");
+	}
 //	-- Left Menu --
 	//選択した左メニュー
 	let selected = $("input[name='selectedLeftMenu']").attr("value");
@@ -141,7 +145,7 @@ $(function() {
 	$(".mailerChildDustBox").on("click", function(){
 		let $child = $(this).parent().parent();
 		let $id = $child.find("input.id").val();
-		updateFlgs($id, Action.DELETE);
+		updateFlgs($id, Action.DELETE);4
 		$child.remove();
 	});
 

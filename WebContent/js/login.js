@@ -1,7 +1,6 @@
 /**
  * login.jsp
  */
-
 $(function(){
 	$(".createAccountArea input")
 	.focusin(function(){

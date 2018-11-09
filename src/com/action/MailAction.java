@@ -24,6 +24,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 	private String search;
 	private int searchFlg;
 	private int selectedLeftMenu;
+	private int deleteFlg;
 
 	//TODO:例外がば
 	public String execute() throws Exception{
@@ -141,6 +142,14 @@ public class MailAction extends ActionSupport implements SessionAware{
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public int getDeleteFlg() {
+		return deleteFlg;
+	}
+
+	public void setDeleteFlg(int deleteFlg) {
+		this.deleteFlg = deleteFlg;
 	}
 
 

@@ -26,6 +26,13 @@
 			</div>
 		</div>
 		<div class="mailer">
+<!--			削除画面の場合-->
+			<s:if test="selectedLeftMenu == 3">
+				<div class="deleteButton">
+					<div class="deleteButtonText">ゴミ箱を今すぐ空にする</div>
+					<div class="deleteButtonHoverCircle"></div>
+				</div>
+			</s:if>
 			<s:iterator value="mailList">
 				<div class="mailerChild">
 					<div class="mailerChildCheckBox floatLeft">
@@ -161,9 +168,9 @@
 	</div>
 	<!-- Information -->
 	<div class="informationArea displayNone">
-			<div class="informationAreaText floatLeft"></div>
-			<div class="informationAreaExit floatLeft">
-				<div class="hoverCircle"></div>
-			</div>
-		</div>
+        <div class="informationAreaText floatLeft"></div>
+        <div class="informationAreaExit floatLeft">
+            <div class="hoverCircle"></div>
+        </div>
+    </div>
 </div>

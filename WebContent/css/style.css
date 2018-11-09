@@ -44,9 +44,6 @@
 .top60% {
 	top: 60%;
 }
-/* .backgroundWhite{ */
-/* 	background-color: white; */
-/* } */
 
 .floatLeft {
 	float: left;
@@ -531,6 +528,31 @@ html, body {
 	width: 100%;
 	height: calc(100% - 96px);
 
+}
+
+.deleteButton {
+	position: relative;
+	height: 50px;
+	width: 100%;
+	
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+.deleteButtonText {
+	line-height: 50px;
+	text-align: center;
+}
+
+.deleteButtonHoverCircle {
+	position: absolute;
+	height: 40px;
+	width: 100px;
+}
+
+.deleteButtonHoverCircle:hover {
+	background-color: black;
 }
 
 .mailerChild {
