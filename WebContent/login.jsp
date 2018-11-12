@@ -23,12 +23,18 @@
 						<input type="text" name="id">
 						<div class="animationBorder"></div>
 					</div>
+					<s:if test="errorMessage != NULL">
+						<s:property value='errorMessage.get("id")'/>
+					</s:if>
 					<br>
 					<div class="animationInputArea clearLeft">
 						<div class="animation">パスワード</div>
 						<input type="password" name="password">
 						<div class="animationBorder"></div>
 					</div>
+					<s:if test="errorMessage != NULL">
+						<s:property value='errorMessage.get("password")'/>
+					</s:if>
 					<div class="clearLeft"></div>
 					<a href="">メールアドレスを忘れた場合</a>
 					<br><br>

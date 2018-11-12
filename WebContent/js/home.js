@@ -184,7 +184,9 @@ $(function() {
 	$(".popup").on({
 		"mouseenter":function(){
 			let text = $(this).find(".popupText").val();
-			$(".popupWindow").removeClass("displayNone");
+//			$(".popupWindow").removeClass("displayNone");
+			$(".popupWindow").removeClass("hidden");
+			$(".popupWindow").addClass("show");
 			$(".popupWindow").offset($(this).offset());
 			$(".popupWindow").offset().top = $(".popupWindow").offset().top + 40;
 			console.log($(".popupWindow").offset().top);
@@ -193,7 +195,9 @@ $(function() {
 			$(".popupWindow").text(text);
 		},
 		"mouseleave": function(){
-			$(".popupWindow").addClass("displayNone");
+			$(".popupWindow").removeClass("show");
+			$(".popupWindow").addClass("hidden");
+//			$(".popupWindow").addClass("displayNone");
 			
 		}
 	});
