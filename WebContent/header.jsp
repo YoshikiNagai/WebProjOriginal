@@ -22,7 +22,9 @@
 	</div>
 	<div class="appMenu"></div>
 	<div class="information"></div>
-	<div class="account"><s:property value="#session.account.firstName" /></div>
+	<div class="account popup opacityAnim cursorPointer"><s:property value="#session.account.firstName" />
+		<input class="popupText" type="hidden" value="iMailアカウント">
+	</div>
 
 	<div class="accountWindow">
 		<div class="accountWindowTop">

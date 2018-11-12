@@ -3,12 +3,12 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="left">
 	<div class="createButtonArea">
-		<div class="createButton">
+		<div class="createButton cursorPointer">
 			<div class="createButtonLeft"></div>
 			<div class="createButtonRight">作成</div>
 		</div>
 	</div>
-	<div class="leftMenu">
+	<div class="leftMenu cursorPointer">
 <!-- 		グローバル変数もどき -->
 		<input type="hidden" name="selectedLeftMenu" value='<s:property value="selectedLeftMenu"/>'>
 
@@ -74,7 +74,9 @@
 		<div class="inputWindowBarText">
 			新規メッセージ
 		</div>
-		<div class="closeButton"></div>
+		<div class="closeButton">
+			<div class="hoverCircleSquare"></div>
+		</div>
 	</div>
 	<div class="inputArea">
 		<s:form action="MailAction">
@@ -83,6 +85,7 @@
 			<textarea rows="" cols="" name="text"></textarea><br>
 			<input type="hidden" name="sendFlg" value="1">
 			<s:submit class="inputWindowButton" value="送信" method="send"/>
+			<s:token></s:token>
 		</s:form>
 
 	</div>

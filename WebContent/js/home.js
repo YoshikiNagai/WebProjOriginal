@@ -112,6 +112,7 @@ $(function() {
 		$(".test .getToVal").text($(this).find(".getToVal").val());
 		$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
 		$(".test .getTextVal").text($(this).find(".getTextVal").val());
+		$(".test .getSendDateVal").text($(this).find(".getSendDateVal").val());
 		updateFlgs($(this).find(".id").val(), Action.READ);
 		$(this).parent().find(".mailerChildTitle").removeClass("bold");
 		$(this).parent().find(".mailerChildFrom").removeClass("bold");

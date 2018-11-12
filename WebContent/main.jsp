@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="main">
-	<div class="popupWindow pointerEventsNone opacity0"></div>
+	<div class="popupWindow pointerEventsNone opacity0">
+		<div class="hoverCircleSquare"></div>
+	</div>
 	<!-- Mail Box -->
 	<div class="mailBox">
 		<div class="upperBar">
@@ -61,6 +63,7 @@
 							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+							<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
 						</div>
 						<div class="mailerChildTitle floatLeft bold">
 							<s:property value="title" />
@@ -69,6 +72,7 @@
 							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+							<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
 						</div>
 
 					</s:if>
@@ -81,6 +85,7 @@
 							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+							<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
 						</div>
 						<div class="mailerChildTitle floatLeft">
 							<s:property value="title" />
@@ -89,6 +94,7 @@
 							<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 							<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 							<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+							<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
 						</div>
 					</s:if>
 					<div class="mailerChildText floatLeft gray normal">
@@ -99,6 +105,16 @@
 						<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 						<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 						<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+						<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
+					</div>
+					<div class="mailerChildDate floatLeft gray normal">
+						<s:property value="sendDate" />
+						<input class="id" type="hidden" value='<s:property value="id"/>'>
+						<input class="getFromVal" type="hidden" value='<s:property value="from"/>'>
+						<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
+						<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
+						<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+						<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
 					</div>
 					<div class="mailerChildETC floatLeft displayNone">
 						<s:if test="delete == true">
@@ -114,12 +130,14 @@
 								<div class="hoverCircle"></div>
 							</div>
 						</s:else>
-						<div class="mailerChildMail floatLeft">
+						<div class="mailerChildMail floatLeft popup">
 							<s:if test="read == true">
 								<div class="mailImg"></div>
+								<input class="popupText" type="hidden" value="未読にする">
 							</s:if>
 							<s:else>
 								<div class="mail2Img"></div>
+								<input class="popupText" type="hidden" value="既読にする">
 							</s:else>
 							<div class="hoverCircle"></div>
 							<input class="id" type="hidden" value='<s:property value="id"/>'>
@@ -131,6 +149,7 @@
 					<input class="getToVal" type="hidden" value='<s:property value="to"/>'>
 					<input class="getTitleVal" type="hidden" value='<s:property value="title"/>'>
 					<input class="getTextVal" type="hidden" value='<s:property value="text"/>'>
+					<input class="getSendDateVal" type="hidden" value='<s:property value="sendDate"/>'>
 				</div>
 			</s:iterator>
 
@@ -163,7 +182,7 @@
 			<h4 class="getTitleVal"></h4>
 			<div class="floatLeft">from:</div>
 			<b class="getFromVal floatLeft"></b>
-			<div class="floatLeft">date(yet)</div>
+			<div class="getSendDateVal floatLeft">date(yet)</div>
 			<br>
 			<div class="floatLeft">to:</div>
 			<div class="getToVal floatLeft"></div>

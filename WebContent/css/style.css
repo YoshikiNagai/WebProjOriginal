@@ -1,4 +1,18 @@
 /* --common--*/
+@keyframes opacityAnim {
+	0% {
+		opacity: 0.5;
+	},
+	100% {
+		opacity: 1.0;
+	}
+}
+
+.opacityAnim{
+	animation: opacityAnim 1s ease 0s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
 
 .center {
 	position: relative;
@@ -85,6 +99,17 @@
 }
 
 .hoverCircle:hover{
+	background-color: lightgray;
+}
+
+.hoverCircleSquare {
+	width: 100%;
+	height: 100%;
+	border-radius: 2px;
+	opacity: 0.5;
+}
+
+.hoverCircleSquare:hover {
 	background-color: lightgray;
 }
 
@@ -664,6 +689,16 @@ html, body {
 
 .mailerChildText {
 	width: 100%;
+	height: 100%;
+	position: relative;
+	margin-left: 5px;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.mailerChildDate {
+	width: 100px;
 	height: 100%;
 	position: relative;
 	margin-left: 5px;

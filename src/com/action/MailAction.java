@@ -46,6 +46,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 			dto.setTitle(title);
 			dto.setText(text);
 			mailDAO.insert(dto);
+			
 		}
 
 		if(deleteFlg == 1){

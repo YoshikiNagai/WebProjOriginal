@@ -9,11 +9,11 @@
 	</head>
 	<body>
 		<script>
-			let versioningNum = new Date().getTime()
-			let jsURL = './js/home.js?ver=' + versioningNum
-			let jsElement = document.createElement('script')
-			jsElement.setAttribute('src', jsURL)
-			document.getElementsByTagName("body")[0].appendChild(jsElement)
+			let versioningNum = new Date().getTime();
+			let jsURL = './js/home.js?ver=' + versioningNum;
+			let jsElement = document.createElement('script');
+			jsElement.setAttribute('src', jsURL);
+			document.getElementsByTagName("body")[0].appendChild(jsElement);
 		</script>
 <!--		<script type="text/javascript" src="./js/home.js"></script>-->
 
