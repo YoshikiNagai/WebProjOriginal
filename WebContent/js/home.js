@@ -72,6 +72,21 @@ $(function() {
 		$(this).addClass("selected");
 		$(this).find("form").submit();
 	});
+	
+	//メール作成画面閉じるボタン
+	$(".closeButton").on("click",()=>{
+		$(".inputWindow").css("display", "none");
+	});
+	
+	//チャット未実装だぞ告知
+	$(".chatUnderMessage a").on({
+		"mouseenter": function(){
+			$(this).text("未実装です。暇だったら作ります。");
+		},
+		"mouseleave": function(){
+			$(this).text("新しいチャットを開始しませんか");
+		}
+	})
 
 //	-- Main menu --
 	//カテゴリー選択した場合にアンダーラインを出す
@@ -184,21 +199,23 @@ $(function() {
 	$(".popup").on({
 		"mouseenter":function(){
 			let text = $(this).find(".popupText").val();
-//			$(".popupWindow").removeClass("displayNone");
-			$(".popupWindow").removeClass("hidden");
-			$(".popupWindow").addClass("show");
-			$(".popupWindow").offset($(this).offset());
-			$(".popupWindow").offset().top = $(".popupWindow").offset().top + 40;
-			console.log($(".popupWindow").offset().top);
-			console.log($(".popupWindow").offset().top + 40);
-			$(".popupWindow").offset({top:$(".popupWindow").offset().top + 40, left:$(".popupWindow").offset().left})
-			$(".popupWindow").text(text);
+			let elem = $(".popupWindow");
+			
+			//update element
+			elem.offset($(this).offset());
+			elem.offset().top = $(".popupWindow").offset().top + 40;
+			elem.offset({top:$(".popupWindow").offset().top + 40, left:$(".popupWindow").offset().left})
+			elem.text(text);
+			elem.removeClass("opacity0 hidden");
+			elem.addClass("opacity07 show");
+			
+			
+			
 		},
 		"mouseleave": function(){
-			$(".popupWindow").removeClass("show");
-			$(".popupWindow").addClass("hidden");
-//			$(".popupWindow").addClass("displayNone");
-			
+			let elem = $(".popupWindow");
+			elem.removeClass("opacity07 show");
+			elem.addClass("opacity0 hidden");
 		}
 	});
 });

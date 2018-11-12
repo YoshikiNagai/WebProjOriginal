@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="main">
-	<div class="popupWindow pointerEventsNone"></div>
+	<div class="popupWindow pointerEventsNone opacity0"></div>
 	<!-- Mail Box -->
 	<div class="mailBox">
 		<div class="upperBar">

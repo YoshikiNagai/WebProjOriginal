@@ -71,7 +71,9 @@
 
 <div class="inputWindow">
 	<div class="inputWindowBar">
-		新規メッセージ
+		<div class="inputWindowBarText">
+			新規メッセージ
+		</div>
 		<div class="closeButton"></div>
 	</div>
 	<div class="inputArea">
