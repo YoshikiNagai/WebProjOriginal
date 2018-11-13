@@ -57,13 +57,13 @@
 						<input type="text" name="lastName" required>
 						<div class="animationBorder"></div>
 					</div>
-
+					<s:property value='errorMessage.get("lastName")'/>
 					<div class="animationInputArea floatLeft">
 						<div class="animation">名</div>
 						<input type="text" name="firstName" required>
 						<div class="animationBorder"></div>
 					</div>
-
+					<s:property value='errorMessage.get("firstName")'/>
 					<br>
 
 					<div class="animationInputArea floatLeft">
@@ -72,6 +72,7 @@
 						<div class="animationBorder"></div>
 
 					</div>
+					<s:property value='errorMessage.get("id")'/>
 					<div class="animationInputArea floatLeft">
 						<div class="mailAddressText">@imail.com</div>
 					</div>
@@ -94,6 +95,9 @@
 						<div class="animationBorder"></div>
 					</div>
 
+					<s:property value='errorMessage.get("password")'/>
+					<s:property value='errorMessage.get("passwordConfirm")'/>
+
 					<div class="clearLeft"></div>
 					<div>
 						半角英字、数字、記号を組み合わせて8文字以上で入力してください<br>
@@ -104,12 +108,13 @@
 						<input type="text" name="phoneNumber" required>
 						<div class="animationBorder"></div>
 					</div>
-
+					<s:property value='errorMessage.get("phoneNumber")'/>
 					<div class="animationInputArea clearLeft">
 						<div class="animation">誕生日</div>
 						<input type="text" name="birthDay" required>
 						<div class="animationBorder"></div>
 					</div>
+					<s:property value='errorMessage.get("birthDay")'/>
 					<div>
 						2018-01-01の形式で入力してください<br>
 					</div>

@@ -1,9 +1,11 @@
 package com.action;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.dao.AccountDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AccountCreateConfirmAction extends ActionSupport implements SessionAware{
@@ -18,11 +20,11 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 	private String gender;
 
 	public Map<String, Object> session;
-	private String errorMessage;
-
+	private Map<String, String> errorMessage = new HashMap<>();
 
 	public String execute(){
-		if(textCheck(id, password, firstName, lastName, phoneNumber, birthDay)){
+
+		if(textCheck(id, password, firstName, lastName, phoneNumber, birthDay) && !validation()){
 			session.put("id", id);
 			session.put("password", password);
 			session.put("firstName", firstName);
@@ -31,10 +33,63 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 			session.put("birthDay", birthDay);
 			session.put("gender", gender);
 		}else{
-			errorMessage = "未入力の項目があります。";
 			return ERROR;
 		}
 		return SUCCESS;
+	}
+
+	private boolean validation(){
+		boolean result = false;
+		AccountDAO dao = new AccountDAO();
+
+		//Id check
+		if(id.length() < 6 || 30 < id.length()){
+			errorMessage.put("id", "IDは6文字以上30文字以下で入力してください");
+			result = true;
+		}
+		try {
+			if(dao.selectWhereId(id.toString()) != null){
+				errorMessage.put("id", "既にIDが存在しています");
+				result = true;
+			}
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		//Password Check
+		if(password.length() < 8 || 30 < password.length()){
+			errorMessage.put("password", "パスワードは8文字以上30文字以下で入力してください");
+			result = true;
+		}
+
+		//		確認入力と違う場合
+		//TODO:パス確認要追記
+		if(!password.equals("")){
+			errorMessage.put("passwordConfirm","パスワードが違います");
+			result = true;
+		}
+
+		if(firstName.length() > 10){
+			errorMessage.put("firstName", "名は10文字以下で入力してください");
+			result = true;
+		}
+
+		if(lastName.length() > 10){
+			errorMessage.put("lastName", "姓は10文字以下で入力してください");
+			result = true;
+		}
+
+		if(!phoneNumber.matches("[0-9]{1,15}")){
+			errorMessage.put("phoneNumber", "電話番号の長さが不正です");
+			result = true;
+		}
+
+		if(!birthDay.matches("[0-9]{4}-[0-1][0-9]-[0-3][0-9]")){
+			errorMessage.put("birthDay", "誕生日は2018-01-01の形式で入力してください");
+			result = true;
+		}
+		return result;
 	}
 
 	private boolean textCheck(String...strings){
@@ -109,11 +164,13 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 		this.session = session;
 	}
 
-	public String getErrorMessage() {
+
+
+	public Map<String, String> getErrorMessage() {
 		return errorMessage;
 	}
 
-	public void setErrorMessage(String errorMessage) {
+	public void setErrorMessage(Map<String, String> errorMessage) {
 		this.errorMessage = errorMessage;
 	}
 
