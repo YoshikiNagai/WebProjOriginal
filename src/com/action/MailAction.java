@@ -29,6 +29,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 	//TODO:例外がば
 	public String execute() throws Exception{
 		System.out.println("execute: MailAction");
+
 		//ログインしてないときの処理（sessionにidがないときの処理）
 		if(session.get("account") == null){
 			System.out.println("-------- Need login");
@@ -46,7 +47,7 @@ public class MailAction extends ActionSupport implements SessionAware{
 			dto.setTitle(title);
 			dto.setText(text);
 			mailDAO.insert(dto);
-			
+			selectedLeftMenu = 0;
 		}
 
 		if(deleteFlg == 1){

@@ -79,13 +79,13 @@
 		</div>
 	</div>
 	<div class="inputArea">
-		<s:form action="MailAction">
+		<s:form action="Send">
 			<input type="text" placeholder="宛先" name="to"><br>
 			<input type="text" placeholder="件名" name="title"><br>
 			<textarea rows="" cols="" name="text"></textarea><br>
 			<input type="hidden" name="sendFlg" value="1">
 			<s:submit class="inputWindowButton" value="送信" method="send"/>
-			<s:token></s:token>
+			<s:token/>
 		</s:form>
 
 	</div>
