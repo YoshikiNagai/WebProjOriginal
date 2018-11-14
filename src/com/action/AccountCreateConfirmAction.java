@@ -12,7 +12,7 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 	//	入力項目
 	private String id;
 	private String password;
-	private String confirmPassword;
+	private String passwordConfirm;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
@@ -65,7 +65,8 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 
 		//		確認入力と違う場合
 		//TODO:パス確認要追記
-		if(!password.equals("")){
+		if(!password.equals(passwordConfirm)){
+			System.out.println(password +","+ passwordConfirm);
 			errorMessage.put("passwordConfirm","パスワードが違います");
 			result = true;
 		}
@@ -113,6 +114,14 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 	public String getFirstName() {
@@ -174,13 +183,7 @@ public class AccountCreateConfirmAction extends ActionSupport implements Session
 		this.errorMessage = errorMessage;
 	}
 
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
 
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
 
 
 }

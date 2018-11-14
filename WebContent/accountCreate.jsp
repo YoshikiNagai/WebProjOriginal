@@ -91,7 +91,7 @@
 
 					<div class="animationInputArea floatLeft">
 						<div class="animation">パスワードの確認</div>
-						<input type="password" name="confirmPassword" required>
+						<input type="password" name="passwordConfirm" required>
 						<div class="animationBorder"></div>
 					</div>
 

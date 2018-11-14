@@ -178,16 +178,20 @@
 			<div></div>
 			<div></div>
 		</div>
+		<div class="fromImage floatLeft"></div>
 		<div class="test">
 			<h4 class="getTitleVal"></h4>
-			<div class="floatLeft">from:</div>
+			<div class="floatLeft"></div>
 			<b class="getFromVal floatLeft"></b>
 			<div class="getSendDateVal floatLeft">date(yet)</div>
 			<br>
-			<div class="floatLeft">to:</div>
-			<div class="getToVal floatLeft"></div>
+			<div class="floatLeft gray font16px">To　</div>
+			<div class="getToVal floatLeft gray font16px"></div>
 			<br>
-			<div class="getTextVal"></div>
+			<div class="getTextVal font14px"></div>
+		</div>
+		<div class="mailViewerBottom">
+			<button>返信</button>
 		</div>
 	</div>
 	<!-- Information -->
