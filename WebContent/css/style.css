@@ -835,6 +835,31 @@ html, body {
 	padding: 5px 15px;
 }
 
+.replay {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	border: 1px solid lightgray;
+}
+
+.replayTop {
+	position: relative;
+	width: 100%;
+	height: 25%;
+}
+
+.replayMain {
+	position: relative;
+	width: 100%;
+	height: 50%;
+}
+
+.replayBottom {
+	position: relative;
+	width: 100%;
+	height: 25%;
+}
+
 .mailViewerBottom button:hover {
 	background-color: lightgray;
 }

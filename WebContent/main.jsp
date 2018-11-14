@@ -193,6 +193,11 @@
 		<div class="mailViewerBottom">
 			<button>返信</button>
 		</div>
+		<div class="replay">
+			<div class="replayTop"></div>
+			<div class="replayMain"></div>
+			<div class="replayBottom"></div>
+		</div>
 	</div>
 	<!-- Information -->
 	<div class="informationArea displayNone">
