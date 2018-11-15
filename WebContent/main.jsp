@@ -191,12 +191,28 @@
 			<div class="getTextVal font14px"></div>
 		</div>
 		<div class="mailViewerBottom">
-			<button>返信</button>
+			<button class="cursorPointer">返信</button>
 		</div>
-		<div class="replay">
-			<div class="replayTop"></div>
-			<div class="replayMain"></div>
-			<div class="replayBottom"></div>
+		<div class="reply displayNone">
+			<s:form action="Send">
+				
+				<div class="replyTop gray">
+
+
+				</div>
+				<div class="replyMain">
+					<textarea class="replyText" name="text" cols="60" rows="10"></textarea>
+				</div>
+				<div class="replyBlankArea"></div>
+				<div class="replyBottom">
+					<button class="cursorPointer">送信</button>
+				</div>
+				
+				<input type="hidden" name="to">
+				<input type="hidden" name="title">
+				<input type="hidden" name="sendFlg" value="1">
+				<s:token/>
+			</s:form>
 		</div>
 	</div>
 	<!-- Information -->

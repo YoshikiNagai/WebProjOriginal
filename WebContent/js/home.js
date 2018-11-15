@@ -1,3 +1,4 @@
+"use strict";
 $(function() {
 	/**
 	 * フラグ系アクションの一覧
@@ -25,6 +26,14 @@ $(function() {
 			}
 		});
 	}
+	
+	let displayToggle = elem =>{
+		if(elem.hasClass("displayNone")){
+			elem.removeClass("displayNone");
+		}else{
+			elem.addClass("displayNone");
+		}
+	};
 
 	$(".deleteButton").on("click", function(){
 		$(this).find("form").submit();
@@ -113,6 +122,9 @@ $(function() {
 		$(".test .getTitleVal").text($(this).find(".getTitleVal").val());
 		$(".test .getTextVal").text($(this).find(".getTextVal").val());
 		$(".test .getSendDateVal").text($(this).find(".getSendDateVal").val());
+		$(".replyTop").text($(this).find(".getFromVal").val());
+		$('.reply input[name="to"]').val($(this).find(".getToVal").val());
+		$('.reply input[name="title"]').val("Re:" + $(this).find(".getTitleVal").val());
 		updateFlgs($(this).find(".id").val(), Action.READ);
 		$(this).parent().find(".mailerChildTitle").removeClass("bold");
 		$(this).parent().find(".mailerChildFrom").removeClass("bold");
@@ -122,6 +134,20 @@ $(function() {
 		$(".mailBox").removeClass("displayNone");
 		$(".mailViewer").addClass("displayNone");
 
+	});
+	
+	//reply
+	$(".mailViewerBottom button").on("click", ()=>{
+		let elem = $(".mailViewer .reply");
+		displayToggle($(".mailViewerBottom"));
+		displayToggle(elem);
+		elem.addClass("sizeAnim");
+		$(".replayBottom button").addClass("opacityAnim");
+	});
+	
+	$(".replyBottom button").on("click", ()=>{
+		let result = $(".reply").find("form").submit();
+		console.log(result);
 	});
 
 	//スター付け
