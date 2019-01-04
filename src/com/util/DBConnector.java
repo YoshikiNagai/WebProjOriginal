@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnector {
 	private static String driverName = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost/imail";
+	private static String url = "jdbc:mysql://160.16.59.72:3306/imail";
 	private static String user = "root";
-	private static String password = "";
+	private static String password = "8612vpopo";
 
 	public Connection getConnection(){
 		Connection con = null;

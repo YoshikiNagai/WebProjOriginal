@@ -26,8 +26,8 @@ $(function() {
 			}
 		});
 	}
-	
-	let displayToggle = elem =>{
+
+	let displayToggle = function(elem){
 		if(elem.hasClass("displayNone")){
 			elem.removeClass("displayNone");
 		}else{
@@ -81,12 +81,12 @@ $(function() {
 		$(this).addClass("selected");
 		$(this).find("form").submit();
 	});
-	
+
 	//メール作成画面閉じるボタン
 	$(".closeButton").on("click",()=>{
 		$(".inputWindow").css("display", "none");
 	});
-	
+
 	//チャット未実装だぞ告知
 	$(".chatUnderMessage a").on({
 		"mouseenter": function(){
@@ -135,7 +135,7 @@ $(function() {
 		$(".mailViewer").addClass("displayNone");
 
 	});
-	
+
 	//reply
 	$(".mailViewerBottom button").on("click", ()=>{
 		let elem = $(".mailViewer .reply");
@@ -144,7 +144,7 @@ $(function() {
 		elem.addClass("sizeAnim");
 		$(".replayBottom button").addClass("opacityAnim");
 	});
-	
+
 	$(".replyBottom button").on("click", ()=>{
 		let result = $(".reply").find("form").submit();
 		console.log(result);
@@ -221,13 +221,13 @@ $(function() {
 			$(".accountWindow").css("display", "none");
 		}
 	});
-	
+
 	//	説明用ポップアップウィンドウ
 	$(".popup").on({
 		"mouseenter":function(){
 			let text = $(this).find(".popupText").val();
 			let elem = $(".popupWindow");
-			
+
 			//update element
 			elem.offset($(this).offset());
 			elem.offset().top = $(".popupWindow").offset().top + 40;
@@ -235,9 +235,9 @@ $(function() {
 			elem.text(text);
 			elem.removeClass("opacity0 hidden");
 			elem.addClass("opacity07 show");
-			
-			
-			
+
+
+
 		},
 		"mouseleave": function(){
 			let elem = $(".popupWindow");
